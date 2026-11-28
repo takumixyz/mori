@@ -1,0 +1,98 @@
+{
+  "w11_splits": {
+    "2b:w11_detector_v2_clean_2b_records.jsonl": {
+      "n": 100,
+      "n_fail": 34,
+      "auroc": 0.9928698752228164,
+      "pr_auc": 0.9853364082009857,
+      "tpr": 1.0,
+      "fpr": 0.18181818181818182,
+      "tpr_cp95_lb": 0.8971820757409874,
+      "tnr_cp95_lb": 0.7039345441700697,
+      "joint_auc_cp95_lb": 0.6011166199110571,
+      "raw_em": 0.66,
+      "routed_em": 0.95,
+      "flag_rate": 0.46
+    },
+    "2b:w11_t3_organic_det_2b_records.jsonl": {
+      "n": 100,
+      "n_fail": 27,
+      "auroc": 0.9857940131912735,
+      "pr_auc": 0.974390243902439,
+      "tpr": 0.9259259259259259,
+      "fpr": 0.0,
+      "tpr_cp95_lb": 0.7571016531543727,
+      "tnr_cp95_lb": 0.9507229391041407,
+      "joint_auc_cp95_lb": 0.7078245922585134,
+      "raw_em": 0.73,
+      "routed_em": 0.73,
+      "flag_rate": 0.25
+    },
+    "9b:w11_detector_v2_clean_9b_records.jsonl": {
+      "n": 100,
+      "n_fail": 29,
+      "auroc": 1.0,
+      "pr_auc": 1.0,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "tpr_cp95_lb": 0.8805551309304973,
+      "tnr_cp95_lb": 0.9493705920455963,
+      "joint_auc_cp95_lb": 0.8299257229760935,
+      "raw_em": 0.71,
+      "routed_em": 1.0,
+      "flag_rate": 0.29
+    },
+    "9b:w11_t3_organic_det_9b_records.jsonl": {
+      "n": 100,
+      "n_fail": 20,
+      "auroc": 0.994375,
+      "pr_auc": 0.9822751322751323,
+      "tpr": 0.9,
+      "fpr": 0.0,
+      "tpr_cp95_lb": 0.6830172859809176,
+      "tnr_cp95_lb": 0.9549359649323077,
+      "joint_auc_cp95_lb": 0.6379532509132253,
+      "raw_em": 0.8,
+      "routed_em": 0.8,
+      "flag_rate": 0.18
+    }
+  },
+  "w12_coupled_vs_uncoupled": {
+    "2b": {
+      "n_eval": 80,
+      "n_fail": 40,
+      "auroc": 1.0,
+      "tpr": 0.575,
+      "fpr": 0.0,
+      "raw_jlocal_em": 0.5,
+      "routed_em": 0.5875
+    },
+    "9b": {
+      "n_eval": 60,
+      "n_fail": 30,
+      "auroc": 1.0,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "raw_jlocal_em": 0.5,
+      "routed_em": 0.9833333333333333
+    },
+    "falcon": {
+      "n_eval": 80,
+      "n_fail": 39,
+      "auroc": 0.9906191369606003,
+      "tpr": 0.7435897435897436,
+      "fpr": 0.024390243902439025,
+      "raw_jlocal_em": 0.5125,
+      "routed_em": 0.7875
+    },
+    "zamba2": {
+      "n_eval": 60,
+      "n_fail": 25,
+      "auroc": 0.8845714285714286,
+      "tpr": 1.0,
+      "fpr": 0.17142857142857143,
+      "raw_jlocal_em": 0.5833333333333334,
+      "routed_em": 0.5666666666666667
+    }
+  }
+}

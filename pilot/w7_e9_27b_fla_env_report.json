@@ -1,0 +1,160 @@
+{
+  "initial_env": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "triton": "3.8.0",
+    "cuda_available": true,
+    "gpu_name": "NVIDIA A100-SXM4-40GB",
+    "nproc": 12,
+    "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Aug_20_01:58:59_PM_PDT_2025\nCuda compilation tools, release 13.0, V13.0.88\nBuild cuda_13.0.r13.0/compiler.36424714_0"
+  },
+  "qm_before": {
+    "transformers_version": "5.22.1",
+    "chunk_gated_delta_rule": {
+      "present": false,
+      "value": "None"
+    },
+    "fused_recurrent_gated_delta_rule": {
+      "present": false,
+      "value": "None"
+    },
+    "torch_chunk_gated_delta_rule": {
+      "present": true,
+      "callable": true,
+      "module": "transformers.models.qwen3_5.modeling_qwen3_5",
+      "name": "torch_chunk_gated_delta_rule",
+      "has_wrapped": true
+    },
+    "torch_recurrent_gated_delta_rule": {
+      "present": true,
+      "callable": true,
+      "module": "transformers.models.qwen3_5.modeling_qwen3_5",
+      "name": "torch_recurrent_gated_delta_rule",
+      "has_wrapped": true
+    },
+    "causal_conv1d_fn": {
+      "present": true,
+      "callable": true,
+      "module": "transformers.models.qwen3_5.modeling_qwen3_5",
+      "name": "causal_conv1d_fn",
+      "has_wrapped": true
+    },
+    "causal_conv1d_update": {
+      "present": true,
+      "callable": true,
+      "module": "transformers.models.qwen3_5.modeling_qwen3_5",
+      "name": "causal_conv1d_update",
+      "has_wrapped": true
+    },
+    "is_flash_linear_attention_available": {
+      "present": false,
+      "value": "None"
+    },
+    "is_causal_conv1d_available": {
+      "present": false,
+      "value": "None"
+    }
+  },
+  "fla": {
+    "dry_run_rc": 0,
+    "touches_torch": false,
+    "install_mode": "only-if-needed",
+    "install_rc": 0,
+    "install_s": 2.93,
+    "install_tail": "",
+    "installed_version": "0.6.0",
+    "cuda_smoke": {
+      "ok": true,
+      "max_out_diff": 4.951760157141521e+27,
+      "max_state_diff": 6.527897194464094e+27
+    },
+    "torch_after": "2.14.1+cu130"
+  },
+  "causal_conv1d": {
+    "attempts": [
+      {
+        "stage": "pypi_binary",
+        "rc": 1,
+        "dt_s": 0.56,
+        "tail": "ERROR: Could not find a version that satisfies the requirement causal-conv1d (from versions: none)\nERROR: No matching distribution found for causal-conv1d\n"
+      },
+      {
+        "stage": "github_releases",
+        "matched_whl": "https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.7.0/causal_conv1d-1.7.0%2Bcu13torch2.10cxx11abiTRUE-cp312-cp312-linux_x86_64.whl",
+        "sample_cp312_assets": [
+          "causal_conv1d-1.7.0+cu11torch2.6cxx11abiFALSE-cp312-cp312-linux_x86_64.whl",
+          "causal_conv1d-1.7.0+cu11torch2.6cxx11abiTRUE-cp312-cp312-linux_x86_64.whl",
+          "causal_conv1d-1.7.0+cu11torch2.7cxx11abiTRUE-cp312-cp312-linux_x86_64.whl",
+          "causal_conv1d-1.7.0+cu12torch2.10cxx11abiTRUE-cp312-cp312-linux_x86_64.whl",
+          "causal_conv1d-1.7.0+cu12torch2.6cxx11abiFALSE-cp312-cp312-linux_x86_64.whl",
+          "causal_conv1d-1.7.0+cu12torch2.6cxx11abiTRUE-cp312-cp312-linux_x86_64.whl",
+          "causal_conv1d-1.7.0+cu12torch2.7cxx11abiTRUE-cp312-cp312-linux_x86_64.whl",
+          "causal_conv1d-1.7.0+cu12torch2.8cxx11abiTRUE-cp312-cp312-linux_x86_64.whl",
+          "causal_conv1d-1.7.0+cu12torch2.9cxx11abiTRUE-cp312-cp312-linux_x86_64.whl",
+          "causal_conv1d-1.7.0+cu13torch2.10cxx11abiTRUE-cp312-cp312-linux_x86_64.whl"
+        ],
+        "install_rc": 1,
+        "dt_s": 0.46,
+        "tail": "ERROR: causal_conv1d-1.7.0+cu13torch2.10cxx11abiTRUE-cp312-cp312-linux_x86_64.whl is not a supported wheel on this platform.\n"
+      },
+      {
+        "stage": "sm80_wheel_build",
+        "rc": -9,
+        "timeout_s": 90,
+        "tail": "Collecting causal-conv1d\n  Downloading causal_conv1d-1.7.0.tar.gz (30 kB)\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: causal-conv1d\n  Building wheel for causal-conv1d (pyproject.toml): started\n"
+      }
+    ],
+    "built_wheel": null,
+    "active": false
+  },
+  "qm_after": {
+    "transformers_version": "5.22.1",
+    "chunk_gated_delta_rule": {
+      "present": false,
+      "value": "None"
+    },
+    "fused_recurrent_gated_delta_rule": {
+      "present": false,
+      "value": "None"
+    },
+    "torch_chunk_gated_delta_rule": {
+      "present": true,
+      "callable": true,
+      "module": "transformers.models.qwen3_5.modeling_qwen3_5",
+      "name": "torch_chunk_gated_delta_rule",
+      "has_wrapped": true
+    },
+    "torch_recurrent_gated_delta_rule": {
+      "present": true,
+      "callable": true,
+      "module": "transformers.models.qwen3_5.modeling_qwen3_5",
+      "name": "torch_recurrent_gated_delta_rule",
+      "has_wrapped": true
+    },
+    "causal_conv1d_fn": {
+      "present": true,
+      "callable": true,
+      "module": "transformers.models.qwen3_5.modeling_qwen3_5",
+      "name": "causal_conv1d_fn",
+      "has_wrapped": true
+    },
+    "causal_conv1d_update": {
+      "present": true,
+      "callable": true,
+      "module": "transformers.models.qwen3_5.modeling_qwen3_5",
+      "name": "causal_conv1d_update",
+      "has_wrapped": true
+    },
+    "is_flash_linear_attention_available": {
+      "present": false,
+      "value": "None"
+    },
+    "is_causal_conv1d_available": {
+      "present": false,
+      "value": "None"
+    }
+  },
+  "runner_rc": 0,
+  "runner_wall_s": 509.94,
+  "total_script_s": 677.99
+}

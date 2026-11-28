@@ -1,0 +1,922 @@
+{
+  "runner": "pilot/w13_fallback_runner.py",
+  "model": "Qwen/Qwen3.5-2B",
+  "detector_mode": "osc",
+  "frozen_config": {
+    "detector": "osc",
+    "tau": 0.4,
+    "resummarized_offline": true
+  },
+  "provenance_note": "Held-out unseen templates (g4_unseen_ood) & serving stream; healable_only excludes unhealable coupled e12 by generator label.",
+  "total_records": 225,
+  "overall": {
+    "n": 225,
+    "n_fail_jlocal": 69,
+    "flag_rate": 0.28,
+    "recompute_rate": 0.28,
+    "recompute_rate_benign_fp": 0.0,
+    "always_jlocal": {
+      "em": 0.6933333333333334,
+      "em_ci95": [
+        0.63025591726052,
+        0.7499197151419803
+      ],
+      "leak_rate": 0.29333333333333333,
+      "mean_kl": 0.2292270471370759,
+      "median_kl": 0.0002589218784123659
+    },
+    "live_routed": {
+      "em": 0.8666666666666667,
+      "em_ci95": [
+        0.8160396212711112,
+        0.904983129837079
+      ],
+      "leak_rate": 0.12,
+      "mean_kl": 0.03119616687131753,
+      "median_kl": 0.00011923720012418926
+    },
+    "always_suffix": {
+      "em": 0.8844444444444445,
+      "em_ci95": [
+        0.8360700806943049,
+        0.9199113492554944
+      ],
+      "leak_rate": 0.1111111111111111,
+      "mean_kl": 0.000426867347795855,
+      "median_kl": 9.742984548211098e-05
+    },
+    "healable_only": {
+      "n": 200,
+      "always_jlocal_em": 0.775,
+      "live_routed_em": 0.97,
+      "always_suffix_em": 0.995
+    },
+    "latency_ms": {
+      "timing_scope": "timed_gpu_path_means (pre-timer H2D & cache clones excluded; apply_delta_rope concatenates KV)",
+      "quantile_convention": "upper-order-statistic: sorted[n//2] for p50, sorted[min(n-1, int(0.95*n))] for p95",
+      "olocal_mean": 296.1813217783088,
+      "live_routed_e2e_mean": 409.60089022306624,
+      "live_routed_e2e_p50": 329.033599991817,
+      "live_routed_e2e_p95": 823.5351999755949,
+      "always_suffix_e2e_mean": 390.98020000021074,
+      "always_suffix_e2e_p50": 325.88710001436993,
+      "always_suffix_e2e_p95": 647.9098999989219,
+      "speedup_routed_vs_always_suffix": 0.9545394293144364
+    },
+    "auroc": 0.9993496841322929,
+    "pr_auc": 0.9985286490826851,
+    "pr_auc_definition": "rank-based average precision (_pr_auc_np); suppressed when n_pos==0 or n_neg==0",
+    "tp": 63,
+    "fp": 0,
+    "fn": 6,
+    "tn": 156,
+    "tpr": 0.9130434782608695,
+    "fpr": 0.0,
+    "tpr_cp95_lb": 0.8202792666994534,
+    "tnr_cp95_lb": 0.9766307284086198,
+    "joint_auc_cp95_lb": 0.7969099951080731,
+    "brier": null,
+    "ece": null
+  },
+  "tau_plateau_audit": {
+    "tau_0.2": {
+      "tau": 0.2,
+      "n": 225,
+      "flag_rate": 0.28,
+      "recompute_rate": 0.28,
+      "benign_fp_rate": 0.0,
+      "tpr": 0.9130434782608695,
+      "fpr": 0.0,
+      "tp": 63,
+      "fp": 0,
+      "routed_em": 0.8666666666666667,
+      "routed_leak": 0.12,
+      "routed_mean_kl": 0.03116247592048388,
+      "standalone_substitution_note": "Offline sweep substitutes standalone always_suffix fields on flagged rows."
+    },
+    "tau_0.4": {
+      "tau": 0.4,
+      "n": 225,
+      "flag_rate": 0.28,
+      "recompute_rate": 0.28,
+      "benign_fp_rate": 0.0,
+      "tpr": 0.9130434782608695,
+      "fpr": 0.0,
+      "tp": 63,
+      "fp": 0,
+      "routed_em": 0.8666666666666667,
+      "routed_leak": 0.12,
+      "routed_mean_kl": 0.03116247592048388,
+      "standalone_substitution_note": "Offline sweep substitutes standalone always_suffix fields on flagged rows."
+    },
+    "tau_0.7": {
+      "tau": 0.7,
+      "n": 225,
+      "flag_rate": 0.28,
+      "recompute_rate": 0.28,
+      "benign_fp_rate": 0.0,
+      "tpr": 0.9130434782608695,
+      "fpr": 0.0,
+      "tp": 63,
+      "fp": 0,
+      "routed_em": 0.8666666666666667,
+      "routed_leak": 0.12,
+      "routed_mean_kl": 0.03116247592048388,
+      "standalone_substitution_note": "Offline sweep substitutes standalone always_suffix fields on flagged rows."
+    }
+  },
+  "suites": {
+    "g4_unseen_ood": {
+      "overall": {
+        "n": 125,
+        "n_fail_jlocal": 49,
+        "flag_rate": 0.344,
+        "recompute_rate": 0.344,
+        "recompute_rate_benign_fp": 0.0,
+        "always_jlocal": {
+          "em": 0.608,
+          "em_ci95": [
+            0.5204192596692241,
+            0.6891403856627183
+          ],
+          "leak_rate": 0.368,
+          "mean_kl": 0.24913688942587595,
+          "median_kl": 0.0005871623288840055
+        },
+        "live_routed": {
+          "em": 0.76,
+          "em_ci95": [
+            0.6780950439664866,
+            0.8264003984993009
+          ],
+          "leak_rate": 0.216,
+          "mean_kl": 0.05577581954909834,
+          "median_kl": 0.0001183938147732988
+        },
+        "always_suffix": {
+          "em": 0.792,
+          "em_ci95": [
+            0.7126703312982823,
+            0.8539168579325251
+          ],
+          "leak_rate": 0.2,
+          "mean_kl": 0.0005036089983614147,
+          "median_kl": 0.0001363831979688257
+        },
+        "healable_only": {
+          "n": 100,
+          "always_jlocal_em": 0.75,
+          "live_routed_em": 0.94,
+          "always_suffix_em": 0.99
+        },
+        "latency_ms": {
+          "timing_scope": "timed_gpu_path_means (pre-timer H2D & cache clones excluded; apply_delta_rope concatenates KV)",
+          "quantile_convention": "upper-order-statistic: sorted[n//2] for p50, sorted[min(n-1, int(0.95*n))] for p95",
+          "olocal_mean": 272.38790240022354,
+          "live_routed_e2e_mean": 385.7299287992064,
+          "live_routed_e2e_p50": 313.9886000135448,
+          "live_routed_e2e_p95": 660.2796999795828,
+          "always_suffix_e2e_mean": 273.19897519797087,
+          "always_suffix_e2e_p50": 276.27190001658164,
+          "always_suffix_e2e_p95": 361.69089999748394,
+          "speedup_routed_vs_always_suffix": 0.7082649149067869
+        },
+        "auroc": 0.9981203007518797,
+        "pr_auc": 0.9970803113104632,
+        "pr_auc_definition": "rank-based average precision (_pr_auc_np); suppressed when n_pos==0 or n_neg==0",
+        "tp": 43,
+        "fp": 0,
+        "fn": 6,
+        "tn": 76,
+        "tpr": 0.8775510204081632,
+        "fpr": 0.0,
+        "tpr_cp95_lb": 0.7523070316403171,
+        "tnr_cp95_lb": 0.9526212461330692,
+        "joint_auc_cp95_lb": 0.7049282777733863,
+        "brier": null,
+        "ece": null
+      },
+      "by_regime": {
+        "unseen_api_json_varlen": {
+          "n": 25,
+          "n_fail_jlocal": 0,
+          "flag_rate": 0.0,
+          "recompute_rate": 0.0,
+          "recompute_rate_benign_fp": 0.0,
+          "always_jlocal": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8668035060468213,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0003267066760781745,
+            "median_kl": 0.00011791370343416929
+          },
+          "live_routed": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8668035060468213,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0003267066760781745,
+            "median_kl": 0.00011791370343416929
+          },
+          "always_suffix": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8668035060468213,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0002228223758538661,
+            "median_kl": 0.00010431627742946148
+          },
+          "healable_only": {
+            "n": 25,
+            "always_jlocal_em": 1.0,
+            "live_routed_em": 1.0,
+            "always_suffix_em": 1.0
+          },
+          "latency_ms": {
+            "timing_scope": "timed_gpu_path_means (pre-timer H2D & cache clones excluded; apply_delta_rope concatenates KV)",
+            "quantile_convention": "upper-order-statistic: sorted[n//2] for p50, sorted[min(n-1, int(0.95*n))] for p95",
+            "olocal_mean": 256.7567480006255,
+            "live_routed_e2e_mean": 267.3774080001749,
+            "live_routed_e2e_p50": 267.783600022085,
+            "live_routed_e2e_p95": 362.32919999747537,
+            "always_suffix_e2e_mean": 250.05584799801,
+            "always_suffix_e2e_p50": 253.8232000079006,
+            "always_suffix_e2e_p95": 340.22439998807386,
+            "speedup_routed_vs_always_suffix": 0.9352168153183923
+          },
+          "auroc": null,
+          "pr_auc": null,
+          "pr_auc_definition": "rank-based average precision (_pr_auc_np); suppressed when n_pos==0 or n_neg==0",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 25,
+          "tpr": 0.0,
+          "fpr": 0.0,
+          "tpr_cp95_lb": 0.0,
+          "tnr_cp95_lb": 0.8628148284692875,
+          "joint_auc_cp95_lb": 0.0,
+          "brier": null,
+          "ece": null
+        },
+        "unseen_cf_news_nl": {
+          "n": 25,
+          "n_fail_jlocal": 0,
+          "flag_rate": 0.0,
+          "recompute_rate": 0.0,
+          "recompute_rate_benign_fp": 0.0,
+          "always_jlocal": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8668035060468213,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0006254393066410557,
+            "median_kl": 0.00012552703265100718
+          },
+          "live_routed": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8668035060468213,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0006254393066410557,
+            "median_kl": 0.00012552703265100718
+          },
+          "always_suffix": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8668035060468213,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.000982183703345072,
+            "median_kl": 0.00016423009219579399
+          },
+          "healable_only": {
+            "n": 25,
+            "always_jlocal_em": 1.0,
+            "live_routed_em": 1.0,
+            "always_suffix_em": 1.0
+          },
+          "latency_ms": {
+            "timing_scope": "timed_gpu_path_means (pre-timer H2D & cache clones excluded; apply_delta_rope concatenates KV)",
+            "quantile_convention": "upper-order-statistic: sorted[n//2] for p50, sorted[min(n-1, int(0.95*n))] for p95",
+            "olocal_mean": 221.4493760012556,
+            "live_routed_e2e_mean": 236.10535999876447,
+            "live_routed_e2e_p50": 231.09580000163987,
+            "live_routed_e2e_p95": 323.332699976163,
+            "always_suffix_e2e_mean": 217.6626719988417,
+            "always_suffix_e2e_p50": 214.13860001484863,
+            "always_suffix_e2e_p95": 292.5700999912806,
+            "speedup_routed_vs_always_suffix": 0.9218878893726966
+          },
+          "auroc": null,
+          "pr_auc": null,
+          "pr_auc_definition": "rank-based average precision (_pr_auc_np); suppressed when n_pos==0 or n_neg==0",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 25,
+          "tpr": 0.0,
+          "fpr": 0.0,
+          "tpr_cp95_lb": 0.0,
+          "tnr_cp95_lb": 0.8628148284692875,
+          "joint_auc_cp95_lb": 0.0,
+          "brier": null,
+          "ece": null
+        },
+        "unseen_coupled_e12_single": {
+          "n": 25,
+          "n_fail_jlocal": 24,
+          "flag_rate": 0.96,
+          "recompute_rate": 0.96,
+          "recompute_rate_benign_fp": 0.0,
+          "always_jlocal": {
+            "em": 0.04,
+            "em_ci95": [
+              0.007096050386699165,
+              0.19544472405022525
+            ],
+            "leak_rate": 0.96,
+            "mean_kl": 0.09929792679846287,
+            "median_kl": 0.04484470188617706
+          },
+          "live_routed": {
+            "em": 0.04,
+            "em_ci95": [
+              0.007096050386699165,
+              0.19544472405022525
+            ],
+            "leak_rate": 0.96,
+            "mean_kl": 0.027313972765011272,
+            "median_kl": 3.0403911296161823e-05
+          },
+          "always_suffix": {
+            "em": 0.0,
+            "em_ci95": [
+              0.0,
+              0.13319649395317873
+            ],
+            "leak_rate": 1.0,
+            "mean_kl": 5.9377902393862316e-05,
+            "median_kl": 3.051237581530586e-05
+          },
+          "healable_only": {
+            "n": 0,
+            "always_jlocal_em": 0.0,
+            "live_routed_em": 0.0,
+            "always_suffix_em": 0.0
+          },
+          "latency_ms": {
+            "timing_scope": "timed_gpu_path_means (pre-timer H2D & cache clones excluded; apply_delta_rope concatenates KV)",
+            "quantile_convention": "upper-order-statistic: sorted[n//2] for p50, sorted[min(n-1, int(0.95*n))] for p95",
+            "olocal_mean": 285.7503359997645,
+            "live_routed_e2e_mean": 586.9543599965982,
+            "live_routed_e2e_p50": 571.3311999861617,
+            "live_routed_e2e_p95": 719.0920000139158,
+            "always_suffix_e2e_mean": 304.8838919994887,
+            "always_suffix_e2e_p50": 285.66130000399426,
+            "always_suffix_e2e_p95": 403.1265999947209,
+            "speedup_routed_vs_always_suffix": 0.5194337290573252
+          },
+          "auroc": 1.0,
+          "pr_auc": 1.0,
+          "pr_auc_definition": "rank-based average precision (_pr_auc_np); suppressed when n_pos==0 or n_neg==0",
+          "tp": 24,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "tpr": 1.0,
+          "fpr": 0.0,
+          "tpr_cp95_lb": 0.8575264022774743,
+          "tnr_cp95_lb": 0.025,
+          "joint_auc_cp95_lb": 0.0,
+          "brier": null,
+          "ece": null
+        },
+        "unseen_entity_collision": {
+          "n": 25,
+          "n_fail_jlocal": 0,
+          "flag_rate": 0.0,
+          "recompute_rate": 0.0,
+          "recompute_rate_benign_fp": 0.0,
+          "always_jlocal": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8668035060468213,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0002209146180493349,
+            "median_kl": 0.00010916439350694418
+          },
+          "live_routed": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8668035060468213,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0002209146180493349,
+            "median_kl": 0.00010916439350694418
+          },
+          "always_suffix": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8668035060468213,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0002372384701629926,
+            "median_kl": 0.0001440563064534217
+          },
+          "healable_only": {
+            "n": 25,
+            "always_jlocal_em": 1.0,
+            "live_routed_em": 1.0,
+            "always_suffix_em": 1.0
+          },
+          "latency_ms": {
+            "timing_scope": "timed_gpu_path_means (pre-timer H2D & cache clones excluded; apply_delta_rope concatenates KV)",
+            "quantile_convention": "upper-order-statistic: sorted[n//2] for p50, sorted[min(n-1, int(0.95*n))] for p95",
+            "olocal_mean": 308.6559280019719,
+            "live_routed_e2e_mean": 318.5569640027825,
+            "live_routed_e2e_p50": 313.9886000135448,
+            "live_routed_e2e_p95": 382.16309997369535,
+            "always_suffix_e2e_mean": 303.7378039979376,
+            "always_suffix_e2e_p50": 298.71709999861196,
+            "always_suffix_e2e_p95": 397.20069998293184,
+            "speedup_routed_vs_always_suffix": 0.9534803451833643
+          },
+          "auroc": null,
+          "pr_auc": null,
+          "pr_auc_definition": "rank-based average precision (_pr_auc_np); suppressed when n_pos==0 or n_neg==0",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 25,
+          "tpr": 0.0,
+          "fpr": 0.0,
+          "tpr_cp95_lb": 0.0,
+          "tnr_cp95_lb": 0.8628148284692875,
+          "joint_auc_cp95_lb": 0.0,
+          "brier": null,
+          "ece": null
+        },
+        "unseen_twohop_bridge": {
+          "n": 25,
+          "n_fail_jlocal": 25,
+          "flag_rate": 0.76,
+          "recompute_rate": 0.76,
+          "recompute_rate_benign_fp": 0.0,
+          "always_jlocal": {
+            "em": 0.0,
+            "em_ci95": [
+              0.0,
+              0.13319649395317873
+            ],
+            "leak_rate": 0.88,
+            "mean_kl": 1.1452134597301482,
+            "median_kl": 1.091522216796875
+          },
+          "live_routed": {
+            "em": 0.76,
+            "em_ci95": [
+              0.5656994004476144,
+              0.8850384226967327
+            ],
+            "leak_rate": 0.12,
+            "mean_kl": 0.2503920643797119,
+            "median_kl": 0.001458293292671442
+          },
+          "always_suffix": {
+            "em": 0.96,
+            "em_ci95": [
+              0.8045552759497747,
+              0.9929039496133008
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0010164225400512805,
+            "median_kl": 0.0005704875220544636
+          },
+          "healable_only": {
+            "n": 25,
+            "always_jlocal_em": 0.0,
+            "live_routed_em": 0.76,
+            "always_suffix_em": 0.96
+          },
+          "latency_ms": {
+            "timing_scope": "timed_gpu_path_means (pre-timer H2D & cache clones excluded; apply_delta_rope concatenates KV)",
+            "quantile_convention": "upper-order-statistic: sorted[n//2] for p50, sorted[min(n-1, int(0.95*n))] for p95",
+            "olocal_mean": 289.32712399750017,
+            "live_routed_e2e_mean": 519.6555519977119,
+            "live_routed_e2e_p50": 560.6851000047754,
+            "live_routed_e2e_p95": 691.7717999604065,
+            "always_suffix_e2e_mean": 289.65465999557637,
+            "always_suffix_e2e_p50": 278.36199998273514,
+            "always_suffix_e2e_p95": 351.66379998554476,
+            "speedup_routed_vs_always_suffix": 0.557397412347577
+          },
+          "auroc": null,
+          "pr_auc": null,
+          "pr_auc_definition": "rank-based average precision (_pr_auc_np); suppressed when n_pos==0 or n_neg==0",
+          "tp": 19,
+          "fp": 0,
+          "fn": 6,
+          "tn": 0,
+          "tpr": 0.76,
+          "fpr": 0.0,
+          "tpr_cp95_lb": 0.5487119821833134,
+          "tnr_cp95_lb": 0.0,
+          "joint_auc_cp95_lb": 0.0,
+          "brier": null,
+          "ece": null
+        }
+      },
+      "tau_plateau_audit": {
+        "tau_0.2": {
+          "tau": 0.2,
+          "n": 125,
+          "flag_rate": 0.344,
+          "recompute_rate": 0.344,
+          "benign_fp_rate": 0.0,
+          "tpr": 0.8775510204081632,
+          "fpr": 0.0,
+          "tp": 43,
+          "fp": 0,
+          "routed_em": 0.76,
+          "routed_leak": 0.216,
+          "routed_mean_kl": 0.05575712346726431,
+          "standalone_substitution_note": "Offline sweep substitutes standalone always_suffix fields on flagged rows."
+        },
+        "tau_0.4": {
+          "tau": 0.4,
+          "n": 125,
+          "flag_rate": 0.344,
+          "recompute_rate": 0.344,
+          "benign_fp_rate": 0.0,
+          "tpr": 0.8775510204081632,
+          "fpr": 0.0,
+          "tp": 43,
+          "fp": 0,
+          "routed_em": 0.76,
+          "routed_leak": 0.216,
+          "routed_mean_kl": 0.05575712346726431,
+          "standalone_substitution_note": "Offline sweep substitutes standalone always_suffix fields on flagged rows."
+        },
+        "tau_0.7": {
+          "tau": 0.7,
+          "n": 125,
+          "flag_rate": 0.344,
+          "recompute_rate": 0.344,
+          "benign_fp_rate": 0.0,
+          "tpr": 0.8775510204081632,
+          "fpr": 0.0,
+          "tp": 43,
+          "fp": 0,
+          "routed_em": 0.76,
+          "routed_leak": 0.216,
+          "routed_mean_kl": 0.05575712346726431,
+          "standalone_substitution_note": "Offline sweep substitutes standalone always_suffix fields on flagged rows."
+        }
+      }
+    },
+    "w12_2_serving": {
+      "overall": {
+        "n": 100,
+        "n_fail_jlocal": 20,
+        "flag_rate": 0.2,
+        "recompute_rate": 0.2,
+        "recompute_rate_benign_fp": 0.0,
+        "always_jlocal": {
+          "em": 0.8,
+          "em_ci95": [
+            0.7111690380734977,
+            0.8666340774409013
+          ],
+          "leak_rate": 0.2,
+          "mean_kl": 0.20433974427607582,
+          "median_kl": 0.00015659163182135671
+        },
+        "live_routed": {
+          "em": 1.0,
+          "em_ci95": [
+            0.9630051925239981,
+            0.9999999999999999
+          ],
+          "leak_rate": 0.0,
+          "mean_kl": 0.0004716010240915125,
+          "median_kl": 0.000121055927593261
+        },
+        "always_suffix": {
+          "em": 1.0,
+          "em_ci95": [
+            0.9630051925239981,
+            0.9999999999999999
+          ],
+          "leak_rate": 0.0,
+          "mean_kl": 0.00033094028458890534,
+          "median_kl": 6.94107948220335e-05
+        },
+        "healable_only": {
+          "n": 100,
+          "always_jlocal_em": 0.8,
+          "live_routed_em": 1.0,
+          "always_suffix_em": 1.0
+        },
+        "latency_ms": {
+          "timing_scope": "timed_gpu_path_means (pre-timer H2D & cache clones excluded; apply_delta_rope concatenates KV)",
+          "quantile_convention": "upper-order-statistic: sorted[n//2] for p50, sorted[min(n-1, int(0.95*n))] for p95",
+          "olocal_mean": 325.9230960009154,
+          "live_routed_e2e_mean": 439.439592002891,
+          "live_routed_e2e_p50": 356.24510000343435,
+          "live_routed_e2e_p95": 870.6351000000723,
+          "always_suffix_e2e_mean": 538.2067310030106,
+          "always_suffix_e2e_p50": 524.0909999993164,
+          "always_suffix_e2e_p95": 672.957899980247,
+          "speedup_routed_vs_always_suffix": 1.2247570332703883
+        },
+        "auroc": 1.0,
+        "pr_auc": 1.0,
+        "pr_auc_definition": "rank-based average precision (_pr_auc_np); suppressed when n_pos==0 or n_neg==0",
+        "tp": 20,
+        "fp": 0,
+        "fn": 0,
+        "tn": 80,
+        "tpr": 1.0,
+        "fpr": 0.0,
+        "tpr_cp95_lb": 0.8315665290169146,
+        "tnr_cp95_lb": 0.9549359649323077,
+        "joint_auc_cp95_lb": 0.7865024939492224,
+        "brier": null,
+        "ece": null
+      },
+      "by_regime": {
+        "benign_clean_fact": {
+          "n": 53,
+          "n_fail_jlocal": 0,
+          "flag_rate": 0.0,
+          "recompute_rate": 0.0,
+          "recompute_rate_benign_fp": 0.0,
+          "always_jlocal": {
+            "em": 1.0,
+            "em_ci95": [
+              0.9324156955469234,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0001186243998225169,
+            "median_kl": 8.247844380093738e-05
+          },
+          "live_routed": {
+            "em": 1.0,
+            "em_ci95": [
+              0.9324156955469234,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0001186243998225169,
+            "median_kl": 8.247844380093738e-05
+          },
+          "always_suffix": {
+            "em": 1.0,
+            "em_ci95": [
+              0.9324156955469234,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.00011443203417036544,
+            "median_kl": 1.015870748233283e-05
+          },
+          "healable_only": {
+            "n": 53,
+            "always_jlocal_em": 1.0,
+            "live_routed_em": 1.0,
+            "always_suffix_em": 1.0
+          },
+          "latency_ms": {
+            "timing_scope": "timed_gpu_path_means (pre-timer H2D & cache clones excluded; apply_delta_rope concatenates KV)",
+            "quantile_convention": "upper-order-statistic: sorted[n//2] for p50, sorted[min(n-1, int(0.95*n))] for p95",
+            "olocal_mean": 356.0213415097129,
+            "live_routed_e2e_mean": 367.23131698529886,
+            "live_routed_e2e_p50": 335.83910000743344,
+            "live_routed_e2e_p95": 550.7783999782987,
+            "always_suffix_e2e_mean": 565.6730056639304,
+            "always_suffix_e2e_p50": 542.9256999923382,
+            "always_suffix_e2e_p95": 674.6109999949113,
+            "speedup_routed_vs_always_suffix": 1.540372455997743
+          },
+          "auroc": null,
+          "pr_auc": null,
+          "pr_auc_definition": "rank-based average precision (_pr_auc_np); suppressed when n_pos==0 or n_neg==0",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 53,
+          "tpr": 0.0,
+          "fpr": 0.0,
+          "tpr_cp95_lb": 0.0,
+          "tnr_cp95_lb": 0.9327654536936989,
+          "joint_auc_cp95_lb": 0.0,
+          "brier": null,
+          "ece": null
+        },
+        "benign_varlen_json": {
+          "n": 27,
+          "n_fail_jlocal": 0,
+          "flag_rate": 0.0,
+          "recompute_rate": 0.0,
+          "recompute_rate_benign_fp": 0.0,
+          "always_jlocal": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8754409628553641,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0007285625625054645,
+            "median_kl": 0.0003348519094288349
+          },
+          "live_routed": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8754409628553641,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0007285625625054645,
+            "median_kl": 0.0003348519094288349
+          },
+          "always_suffix": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8754409628553641,
+              1.0
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.000410028308343263,
+            "median_kl": 6.057749851606786e-05
+          },
+          "healable_only": {
+            "n": 27,
+            "always_jlocal_em": 1.0,
+            "live_routed_em": 1.0,
+            "always_suffix_em": 1.0
+          },
+          "latency_ms": {
+            "timing_scope": "timed_gpu_path_means (pre-timer H2D & cache clones excluded; apply_delta_rope concatenates KV)",
+            "quantile_convention": "upper-order-statistic: sorted[n//2] for p50, sorted[min(n-1, int(0.95*n))] for p95",
+            "olocal_mean": 281.8282962975058,
+            "live_routed_e2e_mean": 292.99380740957093,
+            "live_routed_e2e_p50": 261.69960002880543,
+            "live_routed_e2e_p95": 529.4807000027504,
+            "always_suffix_e2e_mean": 497.25780740738156,
+            "always_suffix_e2e_p50": 496.654699993087,
+            "always_suffix_e2e_p95": 639.3964000162669,
+            "speedup_routed_vs_always_suffix": 1.6971614922641471
+          },
+          "auroc": null,
+          "pr_auc": null,
+          "pr_auc_definition": "rank-based average precision (_pr_auc_np); suppressed when n_pos==0 or n_neg==0",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 27,
+          "tpr": 0.0,
+          "fpr": 0.0,
+          "tpr_cp95_lb": 0.0,
+          "tnr_cp95_lb": 0.8722971323845676,
+          "joint_auc_cp95_lb": 0.0,
+          "brier": null,
+          "ece": null
+        },
+        "coupled_twohop_fail": {
+          "n": 20,
+          "n_fail_jlocal": 20,
+          "flag_rate": 1.0,
+          "recompute_rate": 1.0,
+          "recompute_rate_benign_fp": 0.0,
+          "always_jlocal": {
+            "em": 0.0,
+            "em_ci95": [
+              0.0,
+              0.1611301254949332
+            ],
+            "leak_rate": 1.0,
+            "mean_kl": 1.020400807261467,
+            "median_kl": 1.008750081062317
+          },
+          "live_routed": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8388698745050668,
+              0.9999999999999999
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0010600910015455157,
+            "median_kl": 0.0008209743537008762
+          },
+          "always_suffix": {
+            "em": 1.0,
+            "em_ci95": [
+              0.8388698745050668,
+              0.9999999999999999
+            ],
+            "leak_rate": 0.0,
+            "mean_kl": 0.0007979183161296533,
+            "median_kl": 0.0007947390549816191
+          },
+          "healable_only": {
+            "n": 20,
+            "always_jlocal_em": 0.0,
+            "live_routed_em": 1.0,
+            "always_suffix_em": 1.0
+          },
+          "latency_ms": {
+            "timing_scope": "timed_gpu_path_means (pre-timer H2D & cache clones excluded; apply_delta_rope concatenates KV)",
+            "quantile_convention": "upper-order-statistic: sorted[n//2] for p50, sorted[min(n-1, int(0.95*n))] for p95",
+            "olocal_mean": 305.690725002205,
+            "live_routed_e2e_mean": 828.4933300004923,
+            "live_routed_e2e_p50": 829.7640999953728,
+            "live_routed_e2e_p95": 957.3082000133581,
+            "always_suffix_e2e_mean": 520.7021500056726,
+            "always_suffix_e2e_p50": 513.7275000161026,
+            "always_suffix_e2e_p95": 590.4720000107773,
+            "speedup_routed_vs_always_suffix": 0.6284928691041644
+          },
+          "auroc": null,
+          "pr_auc": null,
+          "pr_auc_definition": "rank-based average precision (_pr_auc_np); suppressed when n_pos==0 or n_neg==0",
+          "tp": 20,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "tpr": 1.0,
+          "fpr": 0.0,
+          "tpr_cp95_lb": 0.8315665290169146,
+          "tnr_cp95_lb": 0.0,
+          "joint_auc_cp95_lb": 0.0,
+          "brier": null,
+          "ece": null
+        }
+      },
+      "tau_plateau_audit": {
+        "tau_0.2": {
+          "tau": 0.2,
+          "n": 100,
+          "flag_rate": 0.2,
+          "recompute_rate": 0.2,
+          "benign_fp_rate": 0.0,
+          "tpr": 1.0,
+          "fpr": 0.0,
+          "tp": 20,
+          "fp": 0,
+          "routed_em": 1.0,
+          "routed_leak": 0.0,
+          "routed_mean_kl": 0.00041916648700834,
+          "standalone_substitution_note": "Offline sweep substitutes standalone always_suffix fields on flagged rows."
+        },
+        "tau_0.4": {
+          "tau": 0.4,
+          "n": 100,
+          "flag_rate": 0.2,
+          "recompute_rate": 0.2,
+          "benign_fp_rate": 0.0,
+          "tpr": 1.0,
+          "fpr": 0.0,
+          "tp": 20,
+          "fp": 0,
+          "routed_em": 1.0,
+          "routed_leak": 0.0,
+          "routed_mean_kl": 0.00041916648700834,
+          "standalone_substitution_note": "Offline sweep substitutes standalone always_suffix fields on flagged rows."
+        },
+        "tau_0.7": {
+          "tau": 0.7,
+          "n": 100,
+          "flag_rate": 0.2,
+          "recompute_rate": 0.2,
+          "benign_fp_rate": 0.0,
+          "tpr": 1.0,
+          "fpr": 0.0,
+          "tp": 20,
+          "fp": 0,
+          "routed_em": 1.0,
+          "routed_leak": 0.0,
+          "routed_mean_kl": 0.00041916648700834,
+          "standalone_substitution_note": "Offline sweep substitutes standalone always_suffix fields on flagged rows."
+        }
+      }
+    }
+  }
+}

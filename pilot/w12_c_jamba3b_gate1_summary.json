@@ -1,0 +1,491 @@
+{
+  "model_key": "jamba3b",
+  "repo_id": "ai21labs/AI21-Jamba-Reasoning-3B",
+  "arch": "jamba",
+  "template_mode": "closed_empty_think_prefill",
+  "tested_claim_scope": "C2 external validity ONLY (C3 GDN transport-decay inapplicable to Mamba-1 + NoPE + dense MLP [num_experts=1; sparse MoE routing untested])",
+  "n_layers": 28,
+  "n_mixers": 26,
+  "w_conv": 4,
+  "has_recurrent": true,
+  "has_rope": false,
+  "moe_meta": {
+    "num_experts": 1,
+    "num_experts_per_tok": 1,
+    "has_moe_router": false,
+    "note": "MoE router selection across edited hidden states can perturb boundary equivalence when num_experts > 1."
+  },
+  "gate_verdict": {
+    "gate1_state_access_ckpt_ok": true,
+    "n_conv_accessible": 26,
+    "n_rec_accessible": 26,
+    "n_kv_accessible": 2,
+    "gate2_g1a_eq_diff_zero_ok": true,
+    "g1a_max_diff": 0.0,
+    "gate3_oracle_prescreen_ok": false,
+    "jlocal_1sample_acc": 0.0,
+    "all_3_gates_plus_jlocal_pass": false,
+    "verdict": "INCONCLUSIVE",
+    "failure_category": "INCONCLUSIVE",
+    "raw_runner_failure_category_before_audit": "GENUINE_STATE_OR_KERNEL_INFEASIBLE",
+    "audit_reclassified": "INCONCLUSIVE_STOPPED_AT_1SAMPLE_GATE_WITHOUT_REWRITING_OLOCAL",
+    "audit_reclassified_note": "Machine-readable verdict and failure_category set to INCONCLUSIVE; raw_runner_failure_category_before_audit retained for provenance. HF mamba_selective_scan has no initial-state parameter/entry point (JambaMambaMixer reads cache only at seq_len==1), G1a=0.0 compares two chunked paths that may both lack recurrent carry, Gate 3 oracle itself scored 0.0 emitting prompt continuation ('The user provided a long text with a' -- template/scoring failure), closed-template G1b KL=0.059154 / max_diff=4.8164 / manual_eq_generate=0/1 leave multiple live explanations, and gate1 records omit raw logits/tensor hashes. Halted without rewriting O_local or adding external mamba-ssm kernels; architectural infeasibility is NOT claimed.",
+    "raw_template_attempt_provenance": {
+      "earlier_raw_chat_template_note": "Earlier raw_apply_chat_template run (open <think>) also scored oracle acc_new=0.0 with g1b_mean_kl=5.17e-4 and g1b_max_diff=2.3125; not archived as a separate JSON file before the --close-think retry (this artifact).",
+      "closed_template_attempt": "closed_empty_think_prefill (archived in this file)"
+    }
+  },
+  "layer_diag_sample": [
+    {
+      "idx": 0,
+      "cls": "LinearAttentionLayer",
+      "has_conv_states": true,
+      "has_rec_states": true,
+      "has_kv": false,
+      "attrs": [
+        "activate_past_recording",
+        "conv_kernel_size",
+        "conv_states",
+        "crop",
+        "device",
+        "dtype",
+        "get_max_length",
+        "has_previous_state",
+        "is_compileable",
+        "is_conv_states_initialized",
+        "is_croppable",
+        "is_recurrent_states_initialized",
+        "lazy_initialization",
+        "number_of_states",
+        "offload",
+        "prefetch",
+        "record_past",
+        "recurrent_states",
+        "reorder_cache",
+        "reset"
+      ]
+    },
+    {
+      "idx": 1,
+      "cls": "LinearAttentionLayer",
+      "has_conv_states": true,
+      "has_rec_states": true,
+      "has_kv": false,
+      "attrs": [
+        "activate_past_recording",
+        "conv_kernel_size",
+        "conv_states",
+        "crop",
+        "device",
+        "dtype",
+        "get_max_length",
+        "has_previous_state",
+        "is_compileable",
+        "is_conv_states_initialized",
+        "is_croppable",
+        "is_recurrent_states_initialized",
+        "lazy_initialization",
+        "number_of_states",
+        "offload",
+        "prefetch",
+        "record_past",
+        "recurrent_states",
+        "reorder_cache",
+        "reset"
+      ]
+    },
+    {
+      "idx": 2,
+      "cls": "LinearAttentionLayer",
+      "has_conv_states": true,
+      "has_rec_states": true,
+      "has_kv": false,
+      "attrs": [
+        "activate_past_recording",
+        "conv_kernel_size",
+        "conv_states",
+        "crop",
+        "device",
+        "dtype",
+        "get_max_length",
+        "has_previous_state",
+        "is_compileable",
+        "is_conv_states_initialized",
+        "is_croppable",
+        "is_recurrent_states_initialized",
+        "lazy_initialization",
+        "number_of_states",
+        "offload",
+        "prefetch",
+        "record_past",
+        "recurrent_states",
+        "reorder_cache",
+        "reset"
+      ]
+    },
+    {
+      "idx": 3,
+      "cls": "LinearAttentionLayer",
+      "has_conv_states": true,
+      "has_rec_states": true,
+      "has_kv": false,
+      "attrs": [
+        "activate_past_recording",
+        "conv_kernel_size",
+        "conv_states",
+        "crop",
+        "device",
+        "dtype",
+        "get_max_length",
+        "has_previous_state",
+        "is_compileable",
+        "is_conv_states_initialized",
+        "is_croppable",
+        "is_recurrent_states_initialized",
+        "lazy_initialization",
+        "number_of_states",
+        "offload",
+        "prefetch",
+        "record_past",
+        "recurrent_states",
+        "reorder_cache",
+        "reset"
+      ]
+    },
+    {
+      "idx": 4,
+      "cls": "LinearAttentionLayer",
+      "has_conv_states": true,
+      "has_rec_states": true,
+      "has_kv": false,
+      "attrs": [
+        "activate_past_recording",
+        "conv_kernel_size",
+        "conv_states",
+        "crop",
+        "device",
+        "dtype",
+        "get_max_length",
+        "has_previous_state",
+        "is_compileable",
+        "is_conv_states_initialized",
+        "is_croppable",
+        "is_recurrent_states_initialized",
+        "lazy_initialization",
+        "number_of_states",
+        "offload",
+        "prefetch",
+        "record_past",
+        "recurrent_states",
+        "reorder_cache",
+        "reset"
+      ]
+    },
+    {
+      "idx": 5,
+      "cls": "LinearAttentionLayer",
+      "has_conv_states": true,
+      "has_rec_states": true,
+      "has_kv": false,
+      "attrs": [
+        "activate_past_recording",
+        "conv_kernel_size",
+        "conv_states",
+        "crop",
+        "device",
+        "dtype",
+        "get_max_length",
+        "has_previous_state",
+        "is_compileable",
+        "is_conv_states_initialized",
+        "is_croppable",
+        "is_recurrent_states_initialized",
+        "lazy_initialization",
+        "number_of_states",
+        "offload",
+        "prefetch",
+        "record_past",
+        "recurrent_states",
+        "reorder_cache",
+        "reset"
+      ]
+    },
+    {
+      "idx": 6,
+      "cls": "LinearAttentionLayer",
+      "has_conv_states": true,
+      "has_rec_states": true,
+      "has_kv": false,
+      "attrs": [
+        "activate_past_recording",
+        "conv_kernel_size",
+        "conv_states",
+        "crop",
+        "device",
+        "dtype",
+        "get_max_length",
+        "has_previous_state",
+        "is_compileable",
+        "is_conv_states_initialized",
+        "is_croppable",
+        "is_recurrent_states_initialized",
+        "lazy_initialization",
+        "number_of_states",
+        "offload",
+        "prefetch",
+        "record_past",
+        "recurrent_states",
+        "reorder_cache",
+        "reset"
+      ]
+    },
+    {
+      "idx": 7,
+      "cls": "DynamicLayer",
+      "has_conv_states": false,
+      "has_rec_states": false,
+      "has_kv": true,
+      "attrs": [
+        "batch_repeat_interleave",
+        "batch_select_indices",
+        "crop",
+        "device",
+        "dtype",
+        "get_mask_sizes",
+        "get_max_length",
+        "get_seq_length",
+        "is_compileable",
+        "is_croppable",
+        "is_initialized",
+        "is_sliding",
+        "keys",
+        "lazy_initialization",
+        "offload",
+        "prefetch",
+        "reorder_cache",
+        "reset",
+        "supports_early_init",
+        "update"
+      ]
+    },
+    {
+      "idx": 8,
+      "cls": "LinearAttentionLayer",
+      "has_conv_states": true,
+      "has_rec_states": true,
+      "has_kv": false,
+      "attrs": [
+        "activate_past_recording",
+        "conv_kernel_size",
+        "conv_states",
+        "crop",
+        "device",
+        "dtype",
+        "get_max_length",
+        "has_previous_state",
+        "is_compileable",
+        "is_conv_states_initialized",
+        "is_croppable",
+        "is_recurrent_states_initialized",
+        "lazy_initialization",
+        "number_of_states",
+        "offload",
+        "prefetch",
+        "record_past",
+        "recurrent_states",
+        "reorder_cache",
+        "reset"
+      ]
+    },
+    {
+      "idx": 9,
+      "cls": "LinearAttentionLayer",
+      "has_conv_states": true,
+      "has_rec_states": true,
+      "has_kv": false,
+      "attrs": [
+        "activate_past_recording",
+        "conv_kernel_size",
+        "conv_states",
+        "crop",
+        "device",
+        "dtype",
+        "get_max_length",
+        "has_previous_state",
+        "is_compileable",
+        "is_conv_states_initialized",
+        "is_croppable",
+        "is_recurrent_states_initialized",
+        "lazy_initialization",
+        "number_of_states",
+        "offload",
+        "prefetch",
+        "record_past",
+        "recurrent_states",
+        "reorder_cache",
+        "reset"
+      ]
+    }
+  ],
+  "gate_e0c_1sample": {
+    "n": 1,
+    "b_deep_offset": 75,
+    "manual_eq_generate": "0/1",
+    "g1a_pass": 1,
+    "g1a_max_diff": 0.0,
+    "g1b_strict_pass": 0,
+    "g1b_mean_kl": 0.05915389979414547,
+    "g1b_max_diff": 4.81640625,
+    "span_p1_mean_kl": 0.00030025472458463645,
+    "deep_jlocal_mean_kl": 0.0010680074241157522
+  },
+  "gate_e2_1sample": {
+    "suite": "E2",
+    "n": 1,
+    "b_offset": 75,
+    "mean_jlocal_ms": 357.01323600000023,
+    "mean_suffix_recompute_ms": 1457.2380310000312,
+    "conditions": {
+      "old": {
+        "n": 1,
+        "acc_new": 0.0,
+        "acc_new_ci95": [
+          0.0,
+          0.7934567085261071
+        ],
+        "acc_old": 0.0,
+        "top1_eq_oracle": 1.0,
+        "mean_kl_vs_oracle": 0.05672217318825704
+      },
+      "oracle": {
+        "n": 1,
+        "acc_new": 0.0,
+        "acc_new_ci95": [
+          0.0,
+          0.7934567085261071
+        ],
+        "acc_old": 0.0,
+        "top1_eq_oracle": 1.0,
+        "mean_kl_vs_oracle": 0.0
+      },
+      "J-local": {
+        "n": 1,
+        "acc_new": 0.0,
+        "acc_new_ci95": [
+          0.0,
+          0.7934567085261071
+        ],
+        "acc_old": 0.0,
+        "top1_eq_oracle": 1.0,
+        "mean_kl_vs_oracle": 0.060943390024118055
+      },
+      "kv_only_deep": {
+        "n": 1,
+        "acc_new": 0.0,
+        "acc_new_ci95": [
+          0.0,
+          0.7934567085261071
+        ],
+        "acc_old": 0.0,
+        "top1_eq_oracle": 1.0,
+        "mean_kl_vs_oracle": 0.060943390024118055
+      },
+      "kv_only_span_p1": {
+        "n": 1,
+        "acc_new": 0.0,
+        "acc_new_ci95": [
+          0.0,
+          0.7934567085261071
+        ],
+        "acc_old": 0.0,
+        "top1_eq_oracle": 1.0,
+        "mean_kl_vs_oracle": 0.06754452418549796
+      },
+      "J-local-evict": {
+        "n": 1,
+        "acc_new": 0.0,
+        "acc_new_ci95": [
+          0.0,
+          0.7934567085261071
+        ],
+        "acc_old": 0.0,
+        "top1_eq_oracle": 1.0,
+        "mean_kl_vs_oracle": 0.05403637281946678
+      },
+      "J-control": {
+        "n": 1,
+        "acc_new": 0.0,
+        "acc_new_ci95": [
+          0.0,
+          0.7934567085261071
+        ],
+        "acc_old": 0.0,
+        "top1_eq_oracle": 1.0,
+        "mean_kl_vs_oracle": 0.054006518059009564
+      },
+      "J-local-stale": {
+        "n": 1,
+        "acc_new": 0.0,
+        "acc_new_ci95": [
+          0.0,
+          0.7934567085261071
+        ],
+        "acc_old": 0.0,
+        "top1_eq_oracle": 1.0,
+        "mean_kl_vs_oracle": 0.060943390024118055
+      },
+      "J-local-recompute": {
+        "n": 1,
+        "acc_new": 0.0,
+        "acc_new_ci95": [
+          0.0,
+          0.7934567085261071
+        ],
+        "acc_old": 0.0,
+        "top1_eq_oracle": 1.0,
+        "mean_kl_vs_oracle": 0.06143170995452302
+      },
+      "state_only": {
+        "n": 1,
+        "acc_new": 0.0,
+        "acc_new_ci95": [
+          0.0,
+          0.7934567085261071
+        ],
+        "acc_old": 0.0,
+        "top1_eq_oracle": 1.0,
+        "mean_kl_vs_oracle": 0.05672217318825704
+      }
+    },
+    "paired_tests": {
+      "J-local_vs_kv_only_deep": {
+        "mcnemar_b_jlocal_only": 0,
+        "mcnemar_c_comp_only": 0,
+        "mcnemar_p": 1.0,
+        "wilcoxon_kl_p": 1.0,
+        "kl_ratio_comp_over_jlocal": 1.0
+      },
+      "J-local_vs_kv_only_span_p1": {
+        "mcnemar_b_jlocal_only": 0,
+        "mcnemar_c_comp_only": 0,
+        "mcnemar_p": 1.0,
+        "wilcoxon_kl_p": 1.0,
+        "kl_ratio_comp_over_jlocal": 1.108315834724119
+      },
+      "J-local_vs_state_only": {
+        "mcnemar_b_jlocal_only": 0,
+        "mcnemar_c_comp_only": 0,
+        "mcnemar_p": 1.0,
+        "wilcoxon_kl_p": 1.0,
+        "kl_ratio_comp_over_jlocal": 0.93073544425096
+      },
+      "J-local_vs_J-local-stale": {
+        "mcnemar_b_jlocal_only": 0,
+        "mcnemar_c_comp_only": 0,
+        "mcnemar_p": 1.0,
+        "wilcoxon_kl_p": 1.0,
+        "kl_ratio_comp_over_jlocal": 1.0
+      }
+    }
+  }
+}

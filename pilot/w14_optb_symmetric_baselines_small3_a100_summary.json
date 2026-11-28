@@ -1,0 +1,2281 @@
+{
+  "runner": "pilot/w14_optb_symmetric_baselines.py",
+  "device_name": "NVIDIA A100-SXM4-40GB",
+  "os_name": "posix",
+  "cuda_platform": "linux_dedicated_vram",
+  "torch_version": "2.14.1+cu130",
+  "transformers_version": "5.22.1",
+  "models": {
+    "falcon-h1": {
+      "repo_id": "tiiuae/Falcon-H1-1.5B-Instruct",
+      "arch": "falcon_h1",
+      "geom": {
+        "n_linear": 24,
+        "n_heads": 48,
+        "d_state": 256,
+        "d_val": 64,
+        "w_conv": 4
+      },
+      "symmetric_hypic_vs_olocal": {
+        "timing_rows": [
+          {
+            "T_ctx": 512,
+            "n_segs_128": 4,
+            "remaining_segs": 3,
+            "jlocal_online_sym_ms": 103.507,
+            "hypic_phi_chain_sym_ms": 105.138,
+            "hypic_mamba2_diagonal_sym_ms": 103.891,
+            "faithful_hypic_over_olocal_speedup": 1.004,
+            "dense_phi_proxy_over_olocal_speedup": 1.016,
+            "symmetric_speedup_hypic_over_jlocal": 1.016,
+            "jlocal_raw_ms": [
+              103.698,
+              105.353,
+              102.653,
+              102.566,
+              103.089,
+              103.892,
+              104.062,
+              103.317
+            ],
+            "hypic_phi_raw_ms": [
+              113.316,
+              105.843,
+              104.296,
+              104.663,
+              105.517,
+              104.97,
+              105.306,
+              103.692
+            ],
+            "hypic_diag_raw_ms": [
+              103.835,
+              103.946,
+              102.554,
+              103.783,
+              103.373,
+              104.496,
+              104.832,
+              105.15
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00621226,
+              "olocal_max_kl": 0.00912485,
+              "hypic_faithful_kl": 0.00684982,
+              "hypic_faithful_max_kl": 0.01104929,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00609444,
+                  "hypic_faithful_kl": 0.00743395,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00309926,
+                  "hypic_faithful_kl": 0.00421716,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.0089023,
+                  "hypic_faithful_kl": 0.01104929,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00912485,
+                  "hypic_faithful_kl": 0.00751929,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00384044,
+                  "hypic_faithful_kl": 0.00402941,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 1024,
+            "n_segs_128": 8,
+            "remaining_segs": 6,
+            "jlocal_online_sym_ms": 103.016,
+            "hypic_phi_chain_sym_ms": 105.204,
+            "hypic_mamba2_diagonal_sym_ms": 104.377,
+            "faithful_hypic_over_olocal_speedup": 1.013,
+            "dense_phi_proxy_over_olocal_speedup": 1.021,
+            "symmetric_speedup_hypic_over_jlocal": 1.021,
+            "jlocal_raw_ms": [
+              103.093,
+              102.913,
+              102.939,
+              102.691,
+              102.656,
+              103.295,
+              103.141,
+              107.069
+            ],
+            "hypic_phi_raw_ms": [
+              104.888,
+              105.201,
+              105.115,
+              105.071,
+              105.638,
+              105.208,
+              107.158,
+              106.002
+            ],
+            "hypic_diag_raw_ms": [
+              104.327,
+              104.058,
+              103.848,
+              104.637,
+              104.491,
+              103.874,
+              104.428,
+              105.329
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00500187,
+              "olocal_max_kl": 0.00963225,
+              "hypic_faithful_kl": 0.00891302,
+              "hypic_faithful_max_kl": 0.02108777,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00314926,
+                  "hypic_faithful_kl": 0.00645374,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00556755,
+                  "hypic_faithful_kl": 0.00770679,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00347104,
+                  "hypic_faithful_kl": 0.00336094,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00963225,
+                  "hypic_faithful_kl": 0.02108777,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00318927,
+                  "hypic_faithful_kl": 0.00595588,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 2048,
+            "n_segs_128": 16,
+            "remaining_segs": 12,
+            "jlocal_online_sym_ms": 102.911,
+            "hypic_phi_chain_sym_ms": 107.667,
+            "hypic_mamba2_diagonal_sym_ms": 105.668,
+            "faithful_hypic_over_olocal_speedup": 1.027,
+            "dense_phi_proxy_over_olocal_speedup": 1.046,
+            "symmetric_speedup_hypic_over_jlocal": 1.046,
+            "jlocal_raw_ms": [
+              103.234,
+              102.773,
+              103.178,
+              102.915,
+              102.679,
+              103.326,
+              102.908,
+              102.626
+            ],
+            "hypic_phi_raw_ms": [
+              106.534,
+              106.761,
+              106.505,
+              107.622,
+              108.698,
+              107.712,
+              107.717,
+              108.58
+            ],
+            "hypic_diag_raw_ms": [
+              105.788,
+              105.665,
+              105.58,
+              105.561,
+              105.822,
+              105.672,
+              105.645,
+              106.138
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00201369,
+              "olocal_max_kl": 0.00283055,
+              "hypic_faithful_kl": 0.00237438,
+              "hypic_faithful_max_kl": 0.00311843,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00190848,
+                  "hypic_faithful_kl": 0.00248887,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00283055,
+                  "hypic_faithful_kl": 0.00161817,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00240142,
+                  "hypic_faithful_kl": 0.00311843,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00089112,
+                  "hypic_faithful_kl": 0.00303183,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00203687,
+                  "hypic_faithful_kl": 0.00161459,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 4096,
+            "n_segs_128": 32,
+            "remaining_segs": 24,
+            "jlocal_online_sym_ms": 103.858,
+            "hypic_phi_chain_sym_ms": 112.318,
+            "hypic_mamba2_diagonal_sym_ms": 109.22,
+            "faithful_hypic_over_olocal_speedup": 1.052,
+            "dense_phi_proxy_over_olocal_speedup": 1.081,
+            "symmetric_speedup_hypic_over_jlocal": 1.081,
+            "jlocal_raw_ms": [
+              103.55,
+              103.604,
+              103.193,
+              104.321,
+              104.004,
+              105.569,
+              103.864,
+              103.851
+            ],
+            "hypic_phi_raw_ms": [
+              111.3,
+              111.513,
+              111.124,
+              112.173,
+              113.965,
+              112.547,
+              112.463,
+              112.605
+            ],
+            "hypic_diag_raw_ms": [
+              108.946,
+              108.726,
+              108.826,
+              109.189,
+              110.556,
+              109.56,
+              109.251,
+              111.261
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00138152,
+              "olocal_max_kl": 0.001951,
+              "hypic_faithful_kl": 0.00178066,
+              "hypic_faithful_max_kl": 0.00260926,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00157965,
+                  "hypic_faithful_kl": 0.00152904,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00113627,
+                  "hypic_faithful_kl": 0.00140575,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00138293,
+                  "hypic_faithful_kl": 0.00260926,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.001951,
+                  "hypic_faithful_kl": 0.00154758,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00085773,
+                  "hypic_faithful_kl": 0.00181168,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 8192,
+            "n_segs_128": 64,
+            "remaining_segs": 48,
+            "jlocal_online_sym_ms": 105.687,
+            "hypic_phi_chain_sym_ms": 123.212,
+            "hypic_mamba2_diagonal_sym_ms": 117.963,
+            "faithful_hypic_over_olocal_speedup": 1.116,
+            "dense_phi_proxy_over_olocal_speedup": 1.166,
+            "symmetric_speedup_hypic_over_jlocal": 1.166,
+            "jlocal_raw_ms": [
+              102.33,
+              104.693,
+              107.285,
+              106.408,
+              105.883,
+              105.491,
+              103.931,
+              106.362
+            ],
+            "hypic_phi_raw_ms": [
+              119.684,
+              123.792,
+              125.853,
+              122.941,
+              123.484,
+              122.438,
+              121.456,
+              128.691
+            ],
+            "hypic_diag_raw_ms": [
+              114.87,
+              118.918,
+              117.595,
+              117.005,
+              118.331,
+              118.677,
+              113.962,
+              125.461
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00371385,
+              "olocal_max_kl": 0.00872716,
+              "hypic_faithful_kl": 0.00299739,
+              "hypic_faithful_max_kl": 0.00737241,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00194694,
+                  "hypic_faithful_kl": 0.00186313,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00872716,
+                  "hypic_faithful_kl": 0.00737241,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00060997,
+                  "hypic_faithful_kl": 0.00131353,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00434436,
+                  "hypic_faithful_kl": 0.00167455,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00294081,
+                  "hypic_faithful_kl": 0.00276334,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          }
+        ],
+        "vram_probe": [
+          {
+            "T_ctx": 512,
+            "n_segs": 4,
+            "d_state": 256,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 38842859520,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 603979776,
+            "hypic_dense_phi_measured_cuda_bytes": 603979776,
+            "hypic_mamba2_diagonal_phi_bytes": 36864,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 4727808,
+            "olocal_gcum_measured_cuda_bytes": 4727808,
+            "olocal_gseg_theoretical_bytes": 36864,
+            "measured_dense_vram_ratio_vs_gcum": 127.75,
+            "theoretical_dense_vram_ratio_vs_gseg": 16384.0
+          },
+          {
+            "T_ctx": 1024,
+            "n_segs": 8,
+            "d_state": 256,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 37859295232,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 1207959552,
+            "hypic_dense_phi_measured_cuda_bytes": 1207959552,
+            "hypic_mamba2_diagonal_phi_bytes": 73728,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 9446400,
+            "olocal_gcum_measured_cuda_bytes": 9446400,
+            "olocal_gseg_theoretical_bytes": 73728,
+            "measured_dense_vram_ratio_vs_gcum": 127.88,
+            "theoretical_dense_vram_ratio_vs_gseg": 16384.0
+          },
+          {
+            "T_ctx": 2048,
+            "n_segs": 16,
+            "d_state": 256,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 37790089216,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 2415919104,
+            "hypic_dense_phi_measured_cuda_bytes": 2415919104,
+            "hypic_mamba2_diagonal_phi_bytes": 147456,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 18883584,
+            "olocal_gcum_measured_cuda_bytes": 18883584,
+            "olocal_gseg_theoretical_bytes": 147456,
+            "measured_dense_vram_ratio_vs_gcum": 127.94,
+            "theoretical_dense_vram_ratio_vs_gseg": 16384.0
+          },
+          {
+            "T_ctx": 4096,
+            "n_segs": 32,
+            "d_state": 256,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 37800574976,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 4831838208,
+            "hypic_dense_phi_measured_cuda_bytes": 4831838208,
+            "hypic_mamba2_diagonal_phi_bytes": 294912,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 37757952,
+            "olocal_gcum_measured_cuda_bytes": 37757952,
+            "olocal_gseg_theoretical_bytes": 294912,
+            "measured_dense_vram_ratio_vs_gcum": 127.97,
+            "theoretical_dense_vram_ratio_vs_gseg": 16384.0
+          },
+          {
+            "T_ctx": 8192,
+            "n_segs": 64,
+            "d_state": 256,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 37804769280,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 9663676416,
+            "hypic_dense_phi_measured_cuda_bytes": 9663676416,
+            "hypic_mamba2_diagonal_phi_bytes": 589824,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 75506688,
+            "olocal_gcum_measured_cuda_bytes": 75506688,
+            "olocal_gseg_theoretical_bytes": 589824,
+            "measured_dense_vram_ratio_vs_gcum": 127.98,
+            "theoretical_dense_vram_ratio_vs_gseg": 16384.0
+          }
+        ]
+      },
+      "t5_single_edit": {
+        "lora_params": 4128768,
+        "total_params": 1558992256,
+        "selected_case_idx": 15,
+        "selected_case_regime": "falcon_h1",
+        "selection_criterion_met": "oracle_pass_highest_ce",
+        "mamba2_prompt_fillers": [
+          12,
+          10
+        ],
+        "train_pool_scanned": 20,
+        "train_pool_oracle_passing_count": 18,
+        "train_pool_oracle_pass_and_pre_fail_count": 0,
+        "heldout_pool_scanned": 20,
+        "heldout_pool_oracle_passing_count": 17,
+        "train_case_id": "falcon_h1_tr_15",
+        "heldout_case_id": "falcon_h1_te",
+        "train_pair": "delta->dew",
+        "heldout_pair": "1682->7761",
+        "train_heldout_disjoint_verified": true,
+        "single_edit_steps_measured": 10,
+        "single_edit_1step_s": 6.3897,
+        "single_edit_warm_median_step_s": 0.5327,
+        "single_edit_k_steps_total_s": 11.1926,
+        "single_edit_loss_start": 4.4417,
+        "single_edit_loss_end": 0.4307,
+        "train_pre_eval": {
+          "loss_ce": 3.7959,
+          "kl_first_vs_oracle": 1.291639,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": false
+        },
+        "train_post_eval": {
+          "loss_ce": 0.4203,
+          "kl_first_vs_oracle": 0.213055,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_pre_eval": {
+          "loss_ce": 0.0002,
+          "kl_first_vs_oracle": 1.8e-05,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_post_eval": {
+          "loss_ce": 0.0002,
+          "kl_first_vs_oracle": 4.2e-05,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_n": 5,
+        "heldout_multi_eval": {
+          "n_heldout": 5,
+          "pre_top1_hits": 5,
+          "post_top1_hits": 5,
+          "oracle_top1_hits": 5,
+          "pre_top1_eq_oracle": 5,
+          "post_top1_eq_oracle": 5,
+          "pre_mean_kl_vs_oracle": 2.2e-05,
+          "post_mean_kl_vs_oracle": 4.6e-05,
+          "pre_mean_ce": 0.0004,
+          "post_mean_ce": 0.0004,
+          "per_case": [
+            {
+              "case_id": "falcon_h1_te_0",
+              "pair": "1682->7761",
+              "pre": {
+                "loss_ce": 0.0002,
+                "kl_first_vs_oracle": 1.8e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0002,
+                "kl_first_vs_oracle": 4.2e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "falcon_h1_te_1",
+              "pair": "8410->1369",
+              "pre": {
+                "loss_ce": 0.0003,
+                "kl_first_vs_oracle": 9e-06,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0003,
+                "kl_first_vs_oracle": 1.1e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "falcon_h1_te_2",
+              "pair": "3534->1229",
+              "pre": {
+                "loss_ce": 0.0003,
+                "kl_first_vs_oracle": 5.4e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0003,
+                "kl_first_vs_oracle": 5.7e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "falcon_h1_te_3",
+              "pair": "8516->6203",
+              "pre": {
+                "loss_ce": 0.0004,
+                "kl_first_vs_oracle": 5e-06,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0004,
+                "kl_first_vs_oracle": 1.9e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "falcon_h1_te_4",
+              "pair": "8074->9953",
+              "pre": {
+                "loss_ce": 0.0008,
+                "kl_first_vs_oracle": 2.3e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0007,
+                "kl_first_vs_oracle": 0.000101,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            }
+          ]
+        },
+        "surrogate_infer_only_ms": 72.95
+      }
+    },
+    "zamba2": {
+      "repo_id": "Zyphra/Zamba2-1.2B-Instruct-v2",
+      "arch": "zamba2",
+      "geom": {
+        "n_linear": 38,
+        "n_heads": 64,
+        "d_state": 128,
+        "d_val": 64,
+        "w_conv": 4
+      },
+      "symmetric_hypic_vs_olocal": {
+        "timing_rows": [
+          {
+            "T_ctx": 512,
+            "n_segs_128": 4,
+            "remaining_segs": 3,
+            "jlocal_online_sym_ms": 123.871,
+            "hypic_phi_chain_sym_ms": 126.019,
+            "hypic_mamba2_diagonal_sym_ms": 123.967,
+            "faithful_hypic_over_olocal_speedup": 1.001,
+            "dense_phi_proxy_over_olocal_speedup": 1.017,
+            "symmetric_speedup_hypic_over_jlocal": 1.017,
+            "jlocal_raw_ms": [
+              123.188,
+              124.146,
+              124.471,
+              121.812,
+              122.828,
+              125.549,
+              123.964,
+              123.778
+            ],
+            "hypic_phi_raw_ms": [
+              126.545,
+              126.75,
+              125.457,
+              124.3,
+              124.686,
+              126.021,
+              127.944,
+              126.016
+            ],
+            "hypic_diag_raw_ms": [
+              125.724,
+              126.389,
+              123.626,
+              122.26,
+              122.083,
+              123.889,
+              124.073,
+              124.045
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00279936,
+              "olocal_max_kl": 0.00693057,
+              "hypic_faithful_kl": 0.00407708,
+              "hypic_faithful_max_kl": 0.00906715,
+              "olocal_top1_eq_count": 3,
+              "hypic_faithful_top1_eq_count": 4,
+              "olocal_top1_eq_rate": 0.6,
+              "hypic_faithful_top1_eq_rate": 0.8,
+              "olocal_top1_eq_oracle": false,
+              "hypic_faithful_top1_eq_oracle": false,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00240871,
+                  "hypic_faithful_kl": 0.00297339,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00184249,
+                  "hypic_faithful_kl": 0.00906715,
+                  "olocal_top1_eq_oracle": false,
+                  "hypic_faithful_top1_eq_oracle": false
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00693057,
+                  "hypic_faithful_kl": 0.00284646,
+                  "olocal_top1_eq_oracle": false,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00171218,
+                  "hypic_faithful_kl": 0.00184615,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00110283,
+                  "hypic_faithful_kl": 0.00365224,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 1024,
+            "n_segs_128": 8,
+            "remaining_segs": 6,
+            "jlocal_online_sym_ms": 124.625,
+            "hypic_phi_chain_sym_ms": 128.108,
+            "hypic_mamba2_diagonal_sym_ms": 126.275,
+            "faithful_hypic_over_olocal_speedup": 1.013,
+            "dense_phi_proxy_over_olocal_speedup": 1.028,
+            "symmetric_speedup_hypic_over_jlocal": 1.028,
+            "jlocal_raw_ms": [
+              125.89,
+              126.369,
+              124.184,
+              126.06,
+              124.493,
+              124.451,
+              124.087,
+              124.757
+            ],
+            "hypic_phi_raw_ms": [
+              128.408,
+              127.56,
+              128.465,
+              127.808,
+              127.642,
+              128.948,
+              127.271,
+              133.121
+            ],
+            "hypic_diag_raw_ms": [
+              128.656,
+              126.226,
+              126.401,
+              125.514,
+              125.623,
+              126.325,
+              126.372,
+              125.418
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00628627,
+              "olocal_max_kl": 0.02166828,
+              "hypic_faithful_kl": 0.00445742,
+              "hypic_faithful_max_kl": 0.01119482,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.0015121,
+                  "hypic_faithful_kl": 0.00121927,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00482784,
+                  "hypic_faithful_kl": 0.00631718,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00171955,
+                  "hypic_faithful_kl": 0.00278449,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00170357,
+                  "hypic_faithful_kl": 0.00077134,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.02166828,
+                  "hypic_faithful_kl": 0.01119482,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 2048,
+            "n_segs_128": 16,
+            "remaining_segs": 12,
+            "jlocal_online_sym_ms": 124.184,
+            "hypic_phi_chain_sym_ms": 127.735,
+            "hypic_mamba2_diagonal_sym_ms": 128.156,
+            "faithful_hypic_over_olocal_speedup": 1.032,
+            "dense_phi_proxy_over_olocal_speedup": 1.029,
+            "symmetric_speedup_hypic_over_jlocal": 1.029,
+            "jlocal_raw_ms": [
+              124.189,
+              126.15,
+              123.803,
+              123.962,
+              124.178,
+              124.01,
+              124.795,
+              126.122
+            ],
+            "hypic_phi_raw_ms": [
+              128.644,
+              127.793,
+              126.787,
+              128.601,
+              126.662,
+              126.844,
+              127.677,
+              127.959
+            ],
+            "hypic_diag_raw_ms": [
+              128.069,
+              128.673,
+              127.702,
+              128.243,
+              127.75,
+              127.349,
+              128.876,
+              128.578
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00083459,
+              "olocal_max_kl": 0.00177403,
+              "hypic_faithful_kl": 0.00084845,
+              "hypic_faithful_max_kl": 0.00147583,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00039018,
+                  "hypic_faithful_kl": 0.00041689,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.0004857,
+                  "hypic_faithful_kl": 0.00054367,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00106837,
+                  "hypic_faithful_kl": 0.00099223,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00177403,
+                  "hypic_faithful_kl": 0.00147583,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00045467,
+                  "hypic_faithful_kl": 0.00081363,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 4096,
+            "n_segs_128": 32,
+            "remaining_segs": 24,
+            "jlocal_online_sym_ms": 125.66,
+            "hypic_phi_chain_sym_ms": 128.205,
+            "hypic_mamba2_diagonal_sym_ms": 132.406,
+            "faithful_hypic_over_olocal_speedup": 1.054,
+            "dense_phi_proxy_over_olocal_speedup": 1.02,
+            "symmetric_speedup_hypic_over_jlocal": 1.02,
+            "jlocal_raw_ms": [
+              128.653,
+              124.851,
+              123.951,
+              125.166,
+              134.269,
+              124.503,
+              126.153,
+              126.188
+            ],
+            "hypic_phi_raw_ms": [
+              134.341,
+              127.833,
+              128.288,
+              129.59,
+              128.122,
+              127.931,
+              128.748,
+              127.638
+            ],
+            "hypic_diag_raw_ms": [
+              134.326,
+              132.435,
+              132.291,
+              137.953,
+              132.018,
+              132.755,
+              131.45,
+              132.376
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00134623,
+              "olocal_max_kl": 0.0024193,
+              "hypic_faithful_kl": 0.00192682,
+              "hypic_faithful_max_kl": 0.00466098,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.0024193,
+                  "hypic_faithful_kl": 0.00466098,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00183699,
+                  "hypic_faithful_kl": 0.00199171,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00036572,
+                  "hypic_faithful_kl": 0.0012033,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00091201,
+                  "hypic_faithful_kl": 0.00073985,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00119712,
+                  "hypic_faithful_kl": 0.00103825,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 8192,
+            "n_segs_128": 64,
+            "remaining_segs": 48,
+            "jlocal_online_sym_ms": 124.402,
+            "hypic_phi_chain_sym_ms": 130.418,
+            "hypic_mamba2_diagonal_sym_ms": 141.046,
+            "faithful_hypic_over_olocal_speedup": 1.134,
+            "dense_phi_proxy_over_olocal_speedup": 1.048,
+            "symmetric_speedup_hypic_over_jlocal": 1.048,
+            "jlocal_raw_ms": [
+              127.257,
+              124.023,
+              124.209,
+              123.901,
+              123.909,
+              124.596,
+              124.815,
+              126.057
+            ],
+            "hypic_phi_raw_ms": [
+              130.294,
+              130.189,
+              130.153,
+              130.114,
+              130.543,
+              130.898,
+              132.276,
+              147.374
+            ],
+            "hypic_diag_raw_ms": [
+              141.072,
+              140.804,
+              142.086,
+              139.145,
+              141.019,
+              140.842,
+              141.962,
+              141.91
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00557645,
+              "olocal_max_kl": 0.00804513,
+              "hypic_faithful_kl": 0.00487459,
+              "hypic_faithful_max_kl": 0.00612081,
+              "olocal_top1_eq_count": 4,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 0.8,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": false,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00680574,
+                  "hypic_faithful_kl": 0.00532704,
+                  "olocal_top1_eq_oracle": false,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00260537,
+                  "hypic_faithful_kl": 0.00305097,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00631863,
+                  "hypic_faithful_kl": 0.00612081,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00804513,
+                  "hypic_faithful_kl": 0.00468573,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.0041074,
+                  "hypic_faithful_kl": 0.00518838,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          }
+        ],
+        "vram_probe": [
+          {
+            "T_ctx": 512,
+            "n_segs": 4,
+            "d_state": 128,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 39369244672,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 318767104,
+            "hypic_dense_phi_measured_cuda_bytes": 318767104,
+            "hypic_mamba2_diagonal_phi_bytes": 77824,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 9980928,
+            "olocal_gcum_measured_cuda_bytes": 9980928,
+            "olocal_gseg_theoretical_bytes": 77824,
+            "measured_dense_vram_ratio_vs_gcum": 31.94,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 1024,
+            "n_segs": 8,
+            "d_state": 128,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 38536675328,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 637534208,
+            "hypic_dense_phi_measured_cuda_bytes": 637534208,
+            "hypic_mamba2_diagonal_phi_bytes": 155648,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 19942400,
+            "olocal_gcum_measured_cuda_bytes": 19942400,
+            "olocal_gseg_theoretical_bytes": 155648,
+            "measured_dense_vram_ratio_vs_gcum": 31.97,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 2048,
+            "n_segs": 16,
+            "d_state": 128,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 38572326912,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 1275068416,
+            "hypic_dense_phi_measured_cuda_bytes": 1275068416,
+            "hypic_mamba2_diagonal_phi_bytes": 311296,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 39865344,
+            "olocal_gcum_measured_cuda_bytes": 39865344,
+            "olocal_gseg_theoretical_bytes": 311296,
+            "measured_dense_vram_ratio_vs_gcum": 31.98,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 4096,
+            "n_segs": 32,
+            "d_state": 128,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 38450692096,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 2550136832,
+            "hypic_dense_phi_measured_cuda_bytes": 2550136832,
+            "hypic_mamba2_diagonal_phi_bytes": 622592,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 79711232,
+            "olocal_gcum_measured_cuda_bytes": 79711232,
+            "olocal_gseg_theoretical_bytes": 622592,
+            "measured_dense_vram_ratio_vs_gcum": 31.99,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 8192,
+            "n_segs": 64,
+            "d_state": 128,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 38303891456,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 5100273664,
+            "hypic_dense_phi_measured_cuda_bytes": 5100273664,
+            "hypic_mamba2_diagonal_phi_bytes": 1245184,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 159403008,
+            "olocal_gcum_measured_cuda_bytes": 159403008,
+            "olocal_gseg_theoretical_bytes": 1245184,
+            "measured_dense_vram_ratio_vs_gcum": 32.0,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          }
+        ]
+      },
+      "t5_single_edit": {
+        "lora_params": 2949120,
+        "total_params": 1218013824,
+        "selected_case_idx": 3,
+        "selected_case_regime": "zamba2",
+        "selection_criterion_met": "oracle_pass_and_pre_fail",
+        "mamba2_prompt_fillers": [
+          12,
+          10
+        ],
+        "train_pool_scanned": 20,
+        "train_pool_oracle_passing_count": 18,
+        "train_pool_oracle_pass_and_pre_fail_count": 6,
+        "heldout_pool_scanned": 20,
+        "heldout_pool_oracle_passing_count": 17,
+        "train_case_id": "zamba2_tr_3",
+        "heldout_case_id": "zamba2_te",
+        "train_pair": "bay->black",
+        "heldout_pair": "8516->6203",
+        "train_heldout_disjoint_verified": true,
+        "single_edit_steps_measured": 10,
+        "single_edit_1step_s": 0.5008,
+        "single_edit_warm_median_step_s": 0.5071,
+        "single_edit_k_steps_total_s": 5.0823,
+        "single_edit_loss_start": 6.373,
+        "single_edit_loss_end": 0.4931,
+        "train_pre_eval": {
+          "loss_ce": 5.4967,
+          "kl_first_vs_oracle": 1.752729,
+          "top1_hit": false,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": false
+        },
+        "train_post_eval": {
+          "loss_ce": 0.143,
+          "kl_first_vs_oracle": 0.683313,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_pre_eval": {
+          "loss_ce": 0.0136,
+          "kl_first_vs_oracle": 0.001242,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_post_eval": {
+          "loss_ce": 0.0118,
+          "kl_first_vs_oracle": 0.002626,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_n": 5,
+        "heldout_multi_eval": {
+          "n_heldout": 5,
+          "pre_top1_hits": 5,
+          "post_top1_hits": 5,
+          "oracle_top1_hits": 5,
+          "pre_top1_eq_oracle": 5,
+          "post_top1_eq_oracle": 5,
+          "pre_mean_kl_vs_oracle": 0.001961,
+          "post_mean_kl_vs_oracle": 0.003537,
+          "pre_mean_ce": 0.0239,
+          "post_mean_ce": 0.0212,
+          "per_case": [
+            {
+              "case_id": "zamba2_te_0",
+              "pair": "8516->6203",
+              "pre": {
+                "loss_ce": 0.0136,
+                "kl_first_vs_oracle": 0.001242,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0118,
+                "kl_first_vs_oracle": 0.002626,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "zamba2_te_1",
+              "pair": "3534->1229",
+              "pre": {
+                "loss_ce": 0.0154,
+                "kl_first_vs_oracle": 0.003532,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0149,
+                "kl_first_vs_oracle": 0.002624,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "zamba2_te_2",
+              "pair": "1682->7761",
+              "pre": {
+                "loss_ce": 0.022,
+                "kl_first_vs_oracle": 0.000524,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0202,
+                "kl_first_vs_oracle": 0.001478,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "zamba2_te_3",
+              "pair": "4752->6047",
+              "pre": {
+                "loss_ce": 0.033,
+                "kl_first_vs_oracle": 0.000882,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0256,
+                "kl_first_vs_oracle": 0.005326,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "zamba2_te_4",
+              "pair": "8936->4567",
+              "pre": {
+                "loss_ce": 0.0354,
+                "kl_first_vs_oracle": 0.003627,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0337,
+                "kl_first_vs_oracle": 0.005631,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            }
+          ]
+        },
+        "surrogate_infer_only_ms": 65.097
+      }
+    },
+    "qwen2b": {
+      "repo_id": "Qwen/Qwen3.5-2B",
+      "arch": "gdn",
+      "geom": {
+        "n_linear": 18,
+        "n_heads": 16,
+        "d_state": 128,
+        "d_val": 128,
+        "w_conv": 4
+      },
+      "symmetric_hypic_vs_olocal": {
+        "timing_rows": [
+          {
+            "T_ctx": 512,
+            "n_segs_128": 4,
+            "remaining_segs": 3,
+            "jlocal_online_sym_ms": 74.155,
+            "hypic_phi_chain_sym_ms": 75.487,
+            "hypic_mamba2_diagonal_sym_ms": null,
+            "faithful_hypic_over_olocal_speedup": 1.018,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": 1.018,
+            "jlocal_raw_ms": [
+              74.345,
+              74.321,
+              80.619,
+              73.99,
+              73.961,
+              75.372,
+              73.51,
+              73.351
+            ],
+            "hypic_phi_raw_ms": [
+              75.786,
+              75.537,
+              76.107,
+              75.436,
+              75.123,
+              81.029,
+              74.753,
+              74.804
+            ],
+            "hypic_diag_raw_ms": null,
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00120459,
+              "olocal_max_kl": 0.00156214,
+              "hypic_faithful_kl": 0.00089446,
+              "hypic_faithful_max_kl": 0.001266,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00135223,
+                  "hypic_faithful_kl": 0.001266,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00156214,
+                  "hypic_faithful_kl": 0.00092112,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00080312,
+                  "hypic_faithful_kl": 0.00057845,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00131582,
+                  "hypic_faithful_kl": 0.00073985,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00098965,
+                  "hypic_faithful_kl": 0.0009669,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 1024,
+            "n_segs_128": 8,
+            "remaining_segs": 6,
+            "jlocal_online_sym_ms": 76.074,
+            "hypic_phi_chain_sym_ms": 77.493,
+            "hypic_mamba2_diagonal_sym_ms": null,
+            "faithful_hypic_over_olocal_speedup": 1.019,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": 1.019,
+            "jlocal_raw_ms": [
+              76.235,
+              75.888,
+              76.064,
+              76.193,
+              75.905,
+              76.083,
+              76.368,
+              75.87
+            ],
+            "hypic_phi_raw_ms": [
+              77.549,
+              77.51,
+              78.193,
+              77.143,
+              77.346,
+              77.667,
+              77.477,
+              77.389
+            ],
+            "hypic_diag_raw_ms": null,
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00075761,
+              "olocal_max_kl": 0.00124311,
+              "hypic_faithful_kl": 0.00071148,
+              "hypic_faithful_max_kl": 0.0014929,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00060647,
+                  "hypic_faithful_kl": 0.00051151,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00069762,
+                  "hypic_faithful_kl": 0.00059971,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.0005714,
+                  "hypic_faithful_kl": 0.00044653,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00124311,
+                  "hypic_faithful_kl": 0.0014929,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00066944,
+                  "hypic_faithful_kl": 0.00050674,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 2048,
+            "n_segs_128": 16,
+            "remaining_segs": 12,
+            "jlocal_online_sym_ms": 75.092,
+            "hypic_phi_chain_sym_ms": 76.8,
+            "hypic_mamba2_diagonal_sym_ms": null,
+            "faithful_hypic_over_olocal_speedup": 1.023,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": 1.023,
+            "jlocal_raw_ms": [
+              75.596,
+              74.92,
+              74.637,
+              75.263,
+              74.76,
+              74.895,
+              75.612,
+              76.752
+            ],
+            "hypic_phi_raw_ms": [
+              78.822,
+              76.707,
+              76.336,
+              76.587,
+              77.044,
+              76.893,
+              78.625,
+              76.409
+            ],
+            "hypic_diag_raw_ms": null,
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00267459,
+              "olocal_max_kl": 0.00855302,
+              "hypic_faithful_kl": 0.00206812,
+              "hypic_faithful_max_kl": 0.00822933,
+              "olocal_top1_eq_count": 4,
+              "hypic_faithful_top1_eq_count": 4,
+              "olocal_top1_eq_rate": 0.8,
+              "hypic_faithful_top1_eq_rate": 0.8,
+              "olocal_top1_eq_oracle": false,
+              "hypic_faithful_top1_eq_oracle": false,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00153321,
+                  "hypic_faithful_kl": 0.00043555,
+                  "olocal_top1_eq_oracle": false,
+                  "hypic_faithful_top1_eq_oracle": false
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00086167,
+                  "hypic_faithful_kl": 0.00068296,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00855302,
+                  "hypic_faithful_kl": 0.00822933,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00117079,
+                  "hypic_faithful_kl": 0.00062232,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00125427,
+                  "hypic_faithful_kl": 0.00037042,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 4096,
+            "n_segs_128": 32,
+            "remaining_segs": 24,
+            "jlocal_online_sym_ms": 75.402,
+            "hypic_phi_chain_sym_ms": 77.373,
+            "hypic_mamba2_diagonal_sym_ms": null,
+            "faithful_hypic_over_olocal_speedup": 1.026,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": 1.026,
+            "jlocal_raw_ms": [
+              74.717,
+              75.472,
+              75.385,
+              75.61,
+              75.418,
+              80.615,
+              73.637,
+              74.177
+            ],
+            "hypic_phi_raw_ms": [
+              77.378,
+              77.368,
+              81.125,
+              77.683,
+              87.643,
+              76.443,
+              76.022,
+              76.678
+            ],
+            "hypic_diag_raw_ms": null,
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00075224,
+              "olocal_max_kl": 0.0011662,
+              "hypic_faithful_kl": 0.00046917,
+              "hypic_faithful_max_kl": 0.00055904,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00067343,
+                  "hypic_faithful_kl": 0.00043844,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00078483,
+                  "hypic_faithful_kl": 0.00055904,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00057713,
+                  "hypic_faithful_kl": 0.00054537,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.0011662,
+                  "hypic_faithful_kl": 0.00035311,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00055959,
+                  "hypic_faithful_kl": 0.00044988,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 8192,
+            "n_segs_128": 64,
+            "remaining_segs": 48,
+            "jlocal_online_sym_ms": 74.419,
+            "hypic_phi_chain_sym_ms": 77.674,
+            "hypic_mamba2_diagonal_sym_ms": null,
+            "faithful_hypic_over_olocal_speedup": 1.044,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": 1.044,
+            "jlocal_raw_ms": [
+              74.439,
+              74.503,
+              74.398,
+              74.034,
+              74.202,
+              74.233,
+              77.138,
+              76.173
+            ],
+            "hypic_phi_raw_ms": [
+              78.006,
+              77.224,
+              77.171,
+              77.021,
+              77.343,
+              79.021,
+              78.796,
+              79.005
+            ],
+            "hypic_diag_raw_ms": null,
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00053615,
+              "olocal_max_kl": 0.00065888,
+              "hypic_faithful_kl": 0.00040262,
+              "hypic_faithful_max_kl": 0.00047673,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00049825,
+                  "hypic_faithful_kl": 0.00038135,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00039046,
+                  "hypic_faithful_kl": 0.00032287,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00048894,
+                  "hypic_faithful_kl": 0.0003918,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00065888,
+                  "hypic_faithful_kl": 0.00044033,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00064421,
+                  "hypic_faithful_kl": 0.00047673,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          }
+        ],
+        "vram_probe": [
+          {
+            "T_ctx": 512,
+            "n_segs": 4,
+            "d_state": 128,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 38045941760,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": true,
+            "dense_phi_role": "exact_gdn_segment_operator",
+            "hypic_dense_phi_theoretical_bytes": 37748736,
+            "hypic_dense_phi_measured_cuda_bytes": 37748736,
+            "hypic_mamba2_diagonal_phi_bytes": null,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 1181952,
+            "olocal_gcum_measured_cuda_bytes": 1182208,
+            "olocal_gseg_theoretical_bytes": 9216,
+            "measured_dense_vram_ratio_vs_gcum": 31.93,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 1024,
+            "n_segs": 8,
+            "d_state": 128,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 37685231616,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": true,
+            "dense_phi_role": "exact_gdn_segment_operator",
+            "hypic_dense_phi_theoretical_bytes": 75497472,
+            "hypic_dense_phi_measured_cuda_bytes": 75497472,
+            "hypic_mamba2_diagonal_phi_bytes": null,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 2361600,
+            "olocal_gcum_measured_cuda_bytes": 2361856,
+            "olocal_gseg_theoretical_bytes": 18432,
+            "measured_dense_vram_ratio_vs_gcum": 31.97,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 2048,
+            "n_segs": 16,
+            "d_state": 128,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 37636997120,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": true,
+            "dense_phi_role": "exact_gdn_segment_operator",
+            "hypic_dense_phi_theoretical_bytes": 150994944,
+            "hypic_dense_phi_measured_cuda_bytes": 150994944,
+            "hypic_mamba2_diagonal_phi_bytes": null,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 4720896,
+            "olocal_gcum_measured_cuda_bytes": 4721152,
+            "olocal_gseg_theoretical_bytes": 36864,
+            "measured_dense_vram_ratio_vs_gcum": 31.98,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 4096,
+            "n_segs": 32,
+            "d_state": 128,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 37595054080,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": true,
+            "dense_phi_role": "exact_gdn_segment_operator",
+            "hypic_dense_phi_theoretical_bytes": 301989888,
+            "hypic_dense_phi_measured_cuda_bytes": 301989888,
+            "hypic_mamba2_diagonal_phi_bytes": null,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 9439488,
+            "olocal_gcum_measured_cuda_bytes": 9439744,
+            "olocal_gseg_theoretical_bytes": 73728,
+            "measured_dense_vram_ratio_vs_gcum": 31.99,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 8192,
+            "n_segs": 64,
+            "d_state": 128,
+            "cuda_platform": "linux_dedicated_vram",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 37597151232,
+            "total_vram_bytes": 42405855232,
+            "dense_phi_faithful_for_arch": true,
+            "dense_phi_role": "exact_gdn_segment_operator",
+            "hypic_dense_phi_theoretical_bytes": 603979776,
+            "hypic_dense_phi_measured_cuda_bytes": 603979776,
+            "hypic_mamba2_diagonal_phi_bytes": null,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 18876672,
+            "olocal_gcum_measured_cuda_bytes": 18876928,
+            "olocal_gseg_theoretical_bytes": 147456,
+            "measured_dense_vram_ratio_vs_gcum": 32.0,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          }
+        ]
+      },
+      "t5_single_edit": {
+        "lora_params": 1474560,
+        "total_params": 1883299648,
+        "selected_case_idx": 28,
+        "selected_case_regime": "counterfact",
+        "selection_criterion_met": "oracle_pass_highest_ce",
+        "mamba2_prompt_fillers": null,
+        "train_pool_scanned": 36,
+        "train_pool_oracle_passing_count": 36,
+        "train_pool_oracle_pass_and_pre_fail_count": 0,
+        "heldout_pool_scanned": 36,
+        "heldout_pool_oracle_passing_count": 35,
+        "train_case_id": "cf_tr_4",
+        "heldout_case_id": "cf_te_16",
+        "train_pair": "Beirut->Manila",
+        "heldout_pair": "Warsaw->Lisbon",
+        "train_heldout_disjoint_verified": true,
+        "single_edit_steps_measured": 10,
+        "single_edit_1step_s": 0.4187,
+        "single_edit_warm_median_step_s": 0.3483,
+        "single_edit_k_steps_total_s": 3.5537,
+        "single_edit_loss_start": 0.7072,
+        "single_edit_loss_end": 0.0595,
+        "train_pre_eval": {
+          "loss_ce": 0.5134,
+          "kl_first_vs_oracle": 0.739084,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "train_post_eval": {
+          "loss_ce": 0.0291,
+          "kl_first_vs_oracle": 0.096759,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_pre_eval": {
+          "loss_ce": 0.0077,
+          "kl_first_vs_oracle": 0.002508,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_post_eval": {
+          "loss_ce": 0.009,
+          "kl_first_vs_oracle": 0.000804,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_n": 5,
+        "heldout_multi_eval": {
+          "n_heldout": 5,
+          "pre_top1_hits": 5,
+          "post_top1_hits": 5,
+          "oracle_top1_hits": 5,
+          "pre_top1_eq_oracle": 5,
+          "post_top1_eq_oracle": 5,
+          "pre_mean_kl_vs_oracle": 0.010291,
+          "post_mean_kl_vs_oracle": 0.003553,
+          "pre_mean_ce": 0.0237,
+          "post_mean_ce": 0.0148,
+          "per_case": [
+            {
+              "case_id": "cf_te_16",
+              "pair": "Warsaw->Lisbon",
+              "pre": {
+                "loss_ce": 0.0077,
+                "kl_first_vs_oracle": 0.002508,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.009,
+                "kl_first_vs_oracle": 0.000804,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "cf_te_17",
+              "pair": "Icelandic->Tamil",
+              "pre": {
+                "loss_ce": 0.0094,
+                "kl_first_vs_oracle": 0.005254,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0071,
+                "kl_first_vs_oracle": 0.002366,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "cf_te_21",
+              "pair": "FIFA->NATO",
+              "pre": {
+                "loss_ce": 0.0117,
+                "kl_first_vs_oracle": 0.002032,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.012,
+                "kl_first_vs_oracle": 0.005801,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "cf_te_18",
+              "pair": "Porsche->Honda",
+              "pre": {
+                "loss_ce": 0.0227,
+                "kl_first_vs_oracle": 0.005384,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0173,
+                "kl_first_vs_oracle": 0.002136,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "cf_te_12",
+              "pair": "French->Russian",
+              "pre": {
+                "loss_ce": 0.0669,
+                "kl_first_vs_oracle": 0.036276,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0286,
+                "kl_first_vs_oracle": 0.006658,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            }
+          ]
+        },
+        "surrogate_infer_only_ms": 52.25
+      }
+    }
+  }
+}

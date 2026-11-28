@@ -1,0 +1,2236 @@
+{
+  "runner": "pilot/w14_optb_symmetric_baselines.py",
+  "device_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "os_name": "nt",
+  "cuda_platform": "windows_wddm",
+  "torch_version": "2.14.1+cu130",
+  "transformers_version": "5.22.2",
+  "models": {
+    "qwen2b": {
+      "repo_id": "Qwen/Qwen3.5-2B",
+      "arch": "gdn",
+      "geom": {
+        "n_linear": 18,
+        "n_heads": 16,
+        "d_state": 128,
+        "d_val": 128,
+        "w_conv": 4
+      },
+      "symmetric_hypic_vs_olocal": {
+        "timing_rows": [
+          {
+            "T_ctx": 512,
+            "n_segs_128": 4,
+            "remaining_segs": 3,
+            "jlocal_online_sym_ms": 101.807,
+            "hypic_phi_chain_sym_ms": 101.208,
+            "hypic_mamba2_diagonal_sym_ms": null,
+            "faithful_hypic_over_olocal_speedup": 0.994,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": 0.994,
+            "jlocal_raw_ms": [
+              102.256,
+              102.335,
+              101.137,
+              103.742,
+              100.187,
+              101.358,
+              102.878,
+              100.472
+            ],
+            "hypic_phi_raw_ms": [
+              101.164,
+              105.049,
+              101.253,
+              98.829,
+              105.399,
+              98.781,
+              99.893,
+              101.644
+            ],
+            "hypic_diag_raw_ms": null,
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00108686,
+              "olocal_max_kl": 0.00141762,
+              "hypic_faithful_kl": 0.00069175,
+              "hypic_faithful_max_kl": 0.0009459,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00093634,
+                  "hypic_faithful_kl": 0.00039849,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00133836,
+                  "hypic_faithful_kl": 0.0009459,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.0008589,
+                  "hypic_faithful_kl": 0.0005118,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00141762,
+                  "hypic_faithful_kl": 0.00076482,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00088306,
+                  "hypic_faithful_kl": 0.00083775,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 1024,
+            "n_segs_128": 8,
+            "remaining_segs": 6,
+            "jlocal_online_sym_ms": 64.449,
+            "hypic_phi_chain_sym_ms": 62.59,
+            "hypic_mamba2_diagonal_sym_ms": null,
+            "faithful_hypic_over_olocal_speedup": 0.971,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": 0.971,
+            "jlocal_raw_ms": [
+              59.415,
+              65.259,
+              63.64,
+              67.153,
+              67.419,
+              65.801,
+              58.243,
+              59.61
+            ],
+            "hypic_phi_raw_ms": [
+              61.855,
+              70.405,
+              64.353,
+              59.786,
+              63.325,
+              66.973,
+              60.748,
+              59.945
+            ],
+            "hypic_diag_raw_ms": null,
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00069868,
+              "olocal_max_kl": 0.00083328,
+              "hypic_faithful_kl": 0.00062174,
+              "hypic_faithful_max_kl": 0.00089417,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00067739,
+                  "hypic_faithful_kl": 0.00063487,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00061269,
+                  "hypic_faithful_kl": 0.00064458,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00062495,
+                  "hypic_faithful_kl": 0.00047122,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00083328,
+                  "hypic_faithful_kl": 0.00089417,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00074509,
+                  "hypic_faithful_kl": 0.00046388,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 2048,
+            "n_segs_128": 16,
+            "remaining_segs": 12,
+            "jlocal_online_sym_ms": 57.79,
+            "hypic_phi_chain_sym_ms": 58.935,
+            "hypic_mamba2_diagonal_sym_ms": null,
+            "faithful_hypic_over_olocal_speedup": 1.02,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": 1.02,
+            "jlocal_raw_ms": [
+              59.284,
+              57.493,
+              61.677,
+              59.062,
+              57.091,
+              58.086,
+              56.246,
+              53.24
+            ],
+            "hypic_phi_raw_ms": [
+              60.642,
+              59.284,
+              59.21,
+              59.755,
+              58.66,
+              58.39,
+              53.853,
+              56.045
+            ],
+            "hypic_diag_raw_ms": null,
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00221659,
+              "olocal_max_kl": 0.00648459,
+              "hypic_faithful_kl": 0.00165583,
+              "hypic_faithful_max_kl": 0.00610601,
+              "olocal_top1_eq_count": 4,
+              "hypic_faithful_top1_eq_count": 4,
+              "olocal_top1_eq_rate": 0.8,
+              "hypic_faithful_top1_eq_rate": 0.8,
+              "olocal_top1_eq_oracle": false,
+              "hypic_faithful_top1_eq_oracle": false,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.0018694,
+                  "hypic_faithful_kl": 0.0004387,
+                  "olocal_top1_eq_oracle": false,
+                  "hypic_faithful_top1_eq_oracle": false
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00085871,
+                  "hypic_faithful_kl": 0.00074228,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00648459,
+                  "hypic_faithful_kl": 0.00610601,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00122372,
+                  "hypic_faithful_kl": 0.00056674,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00064656,
+                  "hypic_faithful_kl": 0.00042542,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 4096,
+            "n_segs_128": 32,
+            "remaining_segs": 24,
+            "jlocal_online_sym_ms": 55.514,
+            "hypic_phi_chain_sym_ms": 58.883,
+            "hypic_mamba2_diagonal_sym_ms": null,
+            "faithful_hypic_over_olocal_speedup": 1.061,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": 1.061,
+            "jlocal_raw_ms": [
+              55.97,
+              55.158,
+              55.512,
+              55.516,
+              55.856,
+              54.365,
+              57.521,
+              54.958
+            ],
+            "hypic_phi_raw_ms": [
+              58.994,
+              58.772,
+              62.834,
+              59.137,
+              58.574,
+              57.518,
+              59.042,
+              58.327
+            ],
+            "hypic_diag_raw_ms": null,
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00078948,
+              "olocal_max_kl": 0.0013683,
+              "hypic_faithful_kl": 0.00040221,
+              "hypic_faithful_max_kl": 0.00050122,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00084819,
+                  "hypic_faithful_kl": 0.00033081,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00051815,
+                  "hypic_faithful_kl": 0.00042898,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00046589,
+                  "hypic_faithful_kl": 0.00050122,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.0013683,
+                  "hypic_faithful_kl": 0.00038201,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00074689,
+                  "hypic_faithful_kl": 0.000368,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 8192,
+            "n_segs_128": 64,
+            "remaining_segs": 48,
+            "jlocal_online_sym_ms": 54.393,
+            "hypic_phi_chain_sym_ms": 58.691,
+            "hypic_mamba2_diagonal_sym_ms": null,
+            "faithful_hypic_over_olocal_speedup": 1.079,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": 1.079,
+            "jlocal_raw_ms": [
+              55.584,
+              51.801,
+              51.275,
+              54.92,
+              51.941,
+              53.866,
+              55.024,
+              55.763
+            ],
+            "hypic_phi_raw_ms": [
+              58.113,
+              57.106,
+              56.771,
+              58.951,
+              58.43,
+              66.019,
+              64.722,
+              59.952
+            ],
+            "hypic_diag_raw_ms": null,
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00051071,
+              "olocal_max_kl": 0.00062404,
+              "hypic_faithful_kl": 0.00049027,
+              "hypic_faithful_max_kl": 0.00060992,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00048825,
+                  "hypic_faithful_kl": 0.00036768,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00038494,
+                  "hypic_faithful_kl": 0.00060992,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00062404,
+                  "hypic_faithful_kl": 0.00048229,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00048254,
+                  "hypic_faithful_kl": 0.00045233,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00057378,
+                  "hypic_faithful_kl": 0.00053913,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          }
+        ],
+        "vram_probe": [
+          {
+            "T_ctx": 512,
+            "n_segs": 4,
+            "d_state": 128,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 3609198592,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": true,
+            "dense_phi_role": "exact_gdn_segment_operator",
+            "hypic_dense_phi_theoretical_bytes": 37748736,
+            "hypic_dense_phi_measured_cuda_bytes": 37748736,
+            "hypic_mamba2_diagonal_phi_bytes": null,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 1181952,
+            "olocal_gcum_measured_cuda_bytes": 1182208,
+            "olocal_gseg_theoretical_bytes": 9216,
+            "measured_dense_vram_ratio_vs_gcum": 31.93,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 1024,
+            "n_segs": 8,
+            "d_state": 128,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 3294625792,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": true,
+            "dense_phi_role": "exact_gdn_segment_operator",
+            "hypic_dense_phi_theoretical_bytes": 75497472,
+            "hypic_dense_phi_measured_cuda_bytes": 75497472,
+            "hypic_mamba2_diagonal_phi_bytes": null,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 2361600,
+            "olocal_gcum_measured_cuda_bytes": 2361856,
+            "olocal_gseg_theoretical_bytes": 18432,
+            "measured_dense_vram_ratio_vs_gcum": 31.97,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 2048,
+            "n_segs": 16,
+            "d_state": 128,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 3275751424,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": true,
+            "dense_phi_role": "exact_gdn_segment_operator",
+            "hypic_dense_phi_theoretical_bytes": 150994944,
+            "hypic_dense_phi_measured_cuda_bytes": 150994944,
+            "hypic_mamba2_diagonal_phi_bytes": null,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 4720896,
+            "olocal_gcum_measured_cuda_bytes": 4721152,
+            "olocal_gseg_theoretical_bytes": 36864,
+            "measured_dense_vram_ratio_vs_gcum": 31.98,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 4096,
+            "n_segs": 32,
+            "d_state": 128,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 3204448256,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": true,
+            "dense_phi_role": "exact_gdn_segment_operator",
+            "hypic_dense_phi_theoretical_bytes": 301989888,
+            "hypic_dense_phi_measured_cuda_bytes": 301989888,
+            "hypic_mamba2_diagonal_phi_bytes": null,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 9439488,
+            "olocal_gcum_measured_cuda_bytes": 9439744,
+            "olocal_gseg_theoretical_bytes": 73728,
+            "measured_dense_vram_ratio_vs_gcum": 31.99,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 8192,
+            "n_segs": 64,
+            "d_state": 128,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 3208642560,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": true,
+            "dense_phi_role": "exact_gdn_segment_operator",
+            "hypic_dense_phi_theoretical_bytes": 603979776,
+            "hypic_dense_phi_measured_cuda_bytes": 603979776,
+            "hypic_mamba2_diagonal_phi_bytes": null,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 18876672,
+            "olocal_gcum_measured_cuda_bytes": 18876928,
+            "olocal_gseg_theoretical_bytes": 147456,
+            "measured_dense_vram_ratio_vs_gcum": 32.0,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          }
+        ]
+      },
+      "t5_single_edit": {
+        "lora_params": 1474560,
+        "total_params": 1883299648,
+        "selected_case_idx": 28,
+        "selected_case_regime": "counterfact",
+        "selection_criterion_met": "oracle_pass_highest_ce",
+        "mamba2_prompt_fillers": null,
+        "train_pool_scanned": 36,
+        "train_pool_oracle_passing_count": 36,
+        "train_pool_oracle_pass_and_pre_fail_count": 0,
+        "heldout_pool_scanned": 36,
+        "heldout_pool_oracle_passing_count": 35,
+        "train_case_id": "cf_tr_4",
+        "heldout_case_id": "cf_te_16",
+        "train_pair": "Beirut->Manila",
+        "heldout_pair": "Warsaw->Lisbon",
+        "train_heldout_disjoint_verified": true,
+        "single_edit_steps_measured": 10,
+        "single_edit_1step_s": 0.3778,
+        "single_edit_warm_median_step_s": 0.2687,
+        "single_edit_k_steps_total_s": 2.7914,
+        "single_edit_loss_start": 0.6442,
+        "single_edit_loss_end": 0.0601,
+        "train_pre_eval": {
+          "loss_ce": 0.4716,
+          "kl_first_vs_oracle": 0.654166,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "train_post_eval": {
+          "loss_ce": 0.0309,
+          "kl_first_vs_oracle": 0.098263,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_pre_eval": {
+          "loss_ce": 0.007,
+          "kl_first_vs_oracle": 0.00343,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_post_eval": {
+          "loss_ce": 0.0086,
+          "kl_first_vs_oracle": 0.001388,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_n": 5,
+        "heldout_multi_eval": {
+          "n_heldout": 5,
+          "pre_top1_hits": 5,
+          "post_top1_hits": 5,
+          "oracle_top1_hits": 5,
+          "pre_top1_eq_oracle": 5,
+          "post_top1_eq_oracle": 5,
+          "pre_mean_kl_vs_oracle": 0.010163,
+          "post_mean_kl_vs_oracle": 0.003874,
+          "pre_mean_ce": 0.0234,
+          "post_mean_ce": 0.0152,
+          "per_case": [
+            {
+              "case_id": "cf_te_16",
+              "pair": "Warsaw->Lisbon",
+              "pre": {
+                "loss_ce": 0.007,
+                "kl_first_vs_oracle": 0.00343,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0086,
+                "kl_first_vs_oracle": 0.001388,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "cf_te_17",
+              "pair": "Icelandic->Tamil",
+              "pre": {
+                "loss_ce": 0.0096,
+                "kl_first_vs_oracle": 0.005238,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.007,
+                "kl_first_vs_oracle": 0.002516,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "cf_te_21",
+              "pair": "FIFA->NATO",
+              "pre": {
+                "loss_ce": 0.0114,
+                "kl_first_vs_oracle": 0.001583,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0107,
+                "kl_first_vs_oracle": 0.004951,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "cf_te_18",
+              "pair": "Porsche->Honda",
+              "pre": {
+                "loss_ce": 0.0221,
+                "kl_first_vs_oracle": 0.004661,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0195,
+                "kl_first_vs_oracle": 0.002781,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "cf_te_12",
+              "pair": "French->Russian",
+              "pre": {
+                "loss_ce": 0.0671,
+                "kl_first_vs_oracle": 0.035903,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0303,
+                "kl_first_vs_oracle": 0.007734,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            }
+          ]
+        },
+        "surrogate_infer_only_ms": 40.906
+      }
+    },
+    "falcon-h1": {
+      "repo_id": "tiiuae/Falcon-H1-1.5B-Instruct",
+      "arch": "falcon_h1",
+      "geom": {
+        "n_linear": 24,
+        "n_heads": 48,
+        "d_state": 256,
+        "d_val": 64,
+        "w_conv": 4
+      },
+      "symmetric_hypic_vs_olocal": {
+        "timing_rows": [
+          {
+            "T_ctx": 512,
+            "n_segs_128": 4,
+            "remaining_segs": 3,
+            "jlocal_online_sym_ms": 86.034,
+            "hypic_phi_chain_sym_ms": 91.833,
+            "hypic_mamba2_diagonal_sym_ms": 84.105,
+            "faithful_hypic_over_olocal_speedup": 0.978,
+            "dense_phi_proxy_over_olocal_speedup": 1.067,
+            "symmetric_speedup_hypic_over_jlocal": 1.067,
+            "jlocal_raw_ms": [
+              88.612,
+              87.233,
+              88.077,
+              87.009,
+              85.059,
+              82.956,
+              82.147,
+              78.404
+            ],
+            "hypic_phi_raw_ms": [
+              95.347,
+              93.796,
+              96.23,
+              91.921,
+              90.778,
+              84.812,
+              84.873,
+              91.746
+            ],
+            "hypic_diag_raw_ms": [
+              86.512,
+              85.037,
+              82.195,
+              85.79,
+              83.352,
+              79.319,
+              78.99,
+              84.858
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00667253,
+              "olocal_max_kl": 0.0094849,
+              "hypic_faithful_kl": 0.00731897,
+              "hypic_faithful_max_kl": 0.01043291,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.0090334,
+                  "hypic_faithful_kl": 0.01006655,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00417726,
+                  "hypic_faithful_kl": 0.00501357,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.0094849,
+                  "hypic_faithful_kl": 0.01043291,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00586841,
+                  "hypic_faithful_kl": 0.00613349,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00479866,
+                  "hypic_faithful_kl": 0.00494833,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 1024,
+            "n_segs_128": 8,
+            "remaining_segs": 6,
+            "jlocal_online_sym_ms": 85.158,
+            "hypic_phi_chain_sym_ms": 99.377,
+            "hypic_mamba2_diagonal_sym_ms": 84.92,
+            "faithful_hypic_over_olocal_speedup": 0.997,
+            "dense_phi_proxy_over_olocal_speedup": 1.167,
+            "symmetric_speedup_hypic_over_jlocal": 1.167,
+            "jlocal_raw_ms": [
+              79.488,
+              84.697,
+              84.982,
+              84.853,
+              85.334,
+              87.084,
+              87.158,
+              86.451
+            ],
+            "hypic_phi_raw_ms": [
+              96.581,
+              98.667,
+              97.781,
+              98.42,
+              100.913,
+              100.087,
+              100.712,
+              100.356
+            ],
+            "hypic_diag_raw_ms": [
+              81.452,
+              85.26,
+              84.58,
+              83.142,
+              84.082,
+              85.893,
+              85.682,
+              85.884
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00475828,
+              "olocal_max_kl": 0.00604269,
+              "hypic_faithful_kl": 0.01084206,
+              "hypic_faithful_max_kl": 0.03303334,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00445157,
+                  "hypic_faithful_kl": 0.0055743,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00604269,
+                  "hypic_faithful_kl": 0.00780782,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00468284,
+                  "hypic_faithful_kl": 0.0028537,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00530773,
+                  "hypic_faithful_kl": 0.03303334,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00330658,
+                  "hypic_faithful_kl": 0.00494112,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 2048,
+            "n_segs_128": 16,
+            "remaining_segs": 12,
+            "jlocal_online_sym_ms": 88.478,
+            "hypic_phi_chain_sym_ms": null,
+            "hypic_mamba2_diagonal_sym_ms": 87.436,
+            "faithful_hypic_over_olocal_speedup": 0.988,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": null,
+            "jlocal_raw_ms": [
+              83.52,
+              90.711,
+              87.94,
+              86.318,
+              90.079,
+              89.015,
+              89.92,
+              87.859
+            ],
+            "hypic_phi_raw_ms": null,
+            "hypic_diag_raw_ms": [
+              83.707,
+              87.197,
+              87.675,
+              101.602,
+              92.343,
+              90.15,
+              86.376,
+              86.858
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00284626,
+              "olocal_max_kl": 0.00506436,
+              "hypic_faithful_kl": 0.00340216,
+              "hypic_faithful_max_kl": 0.00527395,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.0021412,
+                  "hypic_faithful_kl": 0.00329298,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00506436,
+                  "hypic_faithful_kl": 0.00527395,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.0044221,
+                  "hypic_faithful_kl": 0.00345123,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00127139,
+                  "hypic_faithful_kl": 0.00275231,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00133222,
+                  "hypic_faithful_kl": 0.00224034,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 4096,
+            "n_segs_128": 32,
+            "remaining_segs": 24,
+            "jlocal_online_sym_ms": 88.059,
+            "hypic_phi_chain_sym_ms": null,
+            "hypic_mamba2_diagonal_sym_ms": 93.072,
+            "faithful_hypic_over_olocal_speedup": 1.057,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": null,
+            "jlocal_raw_ms": [
+              86.039,
+              85.726,
+              88.237,
+              87.882,
+              89.133,
+              94.193,
+              97.071,
+              86.967
+            ],
+            "hypic_phi_raw_ms": null,
+            "hypic_diag_raw_ms": [
+              88.561,
+              94.379,
+              90.838,
+              90.215,
+              91.765,
+              100.034,
+              95.922,
+              109.698
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00191818,
+              "olocal_max_kl": 0.00245906,
+              "hypic_faithful_kl": 0.00177632,
+              "hypic_faithful_max_kl": 0.00243391,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00124182,
+                  "hypic_faithful_kl": 0.00128819,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00238856,
+                  "hypic_faithful_kl": 0.00205417,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00245906,
+                  "hypic_faithful_kl": 0.00243391,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00166251,
+                  "hypic_faithful_kl": 0.00158159,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00183896,
+                  "hypic_faithful_kl": 0.00152374,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 8192,
+            "n_segs_128": 64,
+            "remaining_segs": 48,
+            "jlocal_online_sym_ms": 86.188,
+            "hypic_phi_chain_sym_ms": null,
+            "hypic_mamba2_diagonal_sym_ms": 94.813,
+            "faithful_hypic_over_olocal_speedup": 1.1,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": null,
+            "jlocal_raw_ms": [
+              89.029,
+              87.261,
+              84.036,
+              79.128,
+              85.115,
+              83.971,
+              93.488,
+              89.602
+            ],
+            "hypic_phi_raw_ms": null,
+            "hypic_diag_raw_ms": [
+              97.511,
+              94.513,
+              95.113,
+              87.525,
+              93.111,
+              92.792,
+              99.589,
+              98.126
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00174524,
+              "olocal_max_kl": 0.00273957,
+              "hypic_faithful_kl": 0.00143994,
+              "hypic_faithful_max_kl": 0.00261779,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00100205,
+                  "hypic_faithful_kl": 0.00089341,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00273957,
+                  "hypic_faithful_kl": 0.00173409,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00207962,
+                  "hypic_faithful_kl": 0.00071575,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00129317,
+                  "hypic_faithful_kl": 0.00123864,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.0016118,
+                  "hypic_faithful_kl": 0.00261779,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          }
+        ],
+        "vram_probe": [
+          {
+            "T_ctx": 512,
+            "n_segs": 4,
+            "d_state": 256,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 4215275520,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 603979776,
+            "hypic_dense_phi_measured_cuda_bytes": 603979776,
+            "hypic_mamba2_diagonal_phi_bytes": 36864,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 4727808,
+            "olocal_gcum_measured_cuda_bytes": 4727808,
+            "olocal_gseg_theoretical_bytes": 36864,
+            "measured_dense_vram_ratio_vs_gcum": 127.75,
+            "theoretical_dense_vram_ratio_vs_gseg": 16384.0
+          },
+          {
+            "T_ctx": 1024,
+            "n_segs": 8,
+            "d_state": 256,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 3351248896,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 1207959552,
+            "hypic_dense_phi_measured_cuda_bytes": 1207959552,
+            "hypic_mamba2_diagonal_phi_bytes": 73728,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 9446400,
+            "olocal_gcum_measured_cuda_bytes": 9446400,
+            "olocal_gseg_theoretical_bytes": 73728,
+            "measured_dense_vram_ratio_vs_gcum": 127.88,
+            "theoretical_dense_vram_ratio_vs_gseg": 16384.0
+          },
+          {
+            "T_ctx": 2048,
+            "n_segs": 16,
+            "d_state": 256,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": true,
+            "free_vram_before_bytes": 3223322624,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 2415919104,
+            "hypic_dense_phi_measured_cuda_bytes": 2415919104,
+            "hypic_mamba2_diagonal_phi_bytes": 147456,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 18883584,
+            "olocal_gcum_measured_cuda_bytes": 18883584,
+            "olocal_gseg_theoretical_bytes": 147456,
+            "measured_dense_vram_ratio_vs_gcum": 127.94,
+            "theoretical_dense_vram_ratio_vs_gseg": 16384.0
+          },
+          {
+            "T_ctx": 4096,
+            "n_segs": 32,
+            "d_state": 256,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": true,
+            "windows_wddm_concurrency_risk_50pct": true,
+            "free_vram_before_bytes": 3248488448,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 4831838208,
+            "hypic_dense_phi_measured_cuda_bytes": 4831838208,
+            "hypic_mamba2_diagonal_phi_bytes": 294912,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": true,
+            "olocal_gcum_theoretical_bytes": 37757952,
+            "olocal_gcum_measured_cuda_bytes": 37757952,
+            "olocal_gseg_theoretical_bytes": 294912,
+            "measured_dense_vram_ratio_vs_gcum": 127.97,
+            "theoretical_dense_vram_ratio_vs_gseg": 16384.0
+          },
+          {
+            "T_ctx": 8192,
+            "n_segs": 64,
+            "d_state": 256,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": true,
+            "windows_wddm_concurrency_risk_50pct": true,
+            "free_vram_before_bytes": 3288334336,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 9663676416,
+            "hypic_dense_phi_measured_cuda_bytes": 9663676416,
+            "hypic_mamba2_diagonal_phi_bytes": 589824,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": true,
+            "olocal_gcum_theoretical_bytes": 75506688,
+            "olocal_gcum_measured_cuda_bytes": 75506688,
+            "olocal_gseg_theoretical_bytes": 589824,
+            "measured_dense_vram_ratio_vs_gcum": 127.98,
+            "theoretical_dense_vram_ratio_vs_gseg": 16384.0
+          }
+        ]
+      },
+      "t5_single_edit": {
+        "lora_params": 4128768,
+        "total_params": 1558992256,
+        "selected_case_idx": 15,
+        "selected_case_regime": "falcon_h1",
+        "selection_criterion_met": "oracle_pass_highest_ce",
+        "mamba2_prompt_fillers": [
+          12,
+          10
+        ],
+        "train_pool_scanned": 20,
+        "train_pool_oracle_passing_count": 18,
+        "train_pool_oracle_pass_and_pre_fail_count": 0,
+        "heldout_pool_scanned": 20,
+        "heldout_pool_oracle_passing_count": 17,
+        "train_case_id": "falcon_h1_tr_15",
+        "heldout_case_id": "falcon_h1_te",
+        "train_pair": "delta->dew",
+        "heldout_pair": "1682->7761",
+        "train_heldout_disjoint_verified": true,
+        "single_edit_steps_measured": 10,
+        "single_edit_1step_s": 0.4096,
+        "single_edit_warm_median_step_s": 0.4063,
+        "single_edit_k_steps_total_s": 4.0181,
+        "single_edit_loss_start": 4.5641,
+        "single_edit_loss_end": 0.4717,
+        "train_pre_eval": {
+          "loss_ce": 3.9165,
+          "kl_first_vs_oracle": 1.295096,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": false
+        },
+        "train_post_eval": {
+          "loss_ce": 0.4309,
+          "kl_first_vs_oracle": 0.251603,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_pre_eval": {
+          "loss_ce": 0.0002,
+          "kl_first_vs_oracle": 6.1e-05,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_post_eval": {
+          "loss_ce": 0.0002,
+          "kl_first_vs_oracle": 6.5e-05,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_n": 5,
+        "heldout_multi_eval": {
+          "n_heldout": 5,
+          "pre_top1_hits": 5,
+          "post_top1_hits": 5,
+          "oracle_top1_hits": 5,
+          "pre_top1_eq_oracle": 5,
+          "post_top1_eq_oracle": 5,
+          "pre_mean_kl_vs_oracle": 3.8e-05,
+          "post_mean_kl_vs_oracle": 3.1e-05,
+          "pre_mean_ce": 0.0004,
+          "post_mean_ce": 0.0004,
+          "per_case": [
+            {
+              "case_id": "falcon_h1_te_0",
+              "pair": "1682->7761",
+              "pre": {
+                "loss_ce": 0.0002,
+                "kl_first_vs_oracle": 6.1e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0002,
+                "kl_first_vs_oracle": 6.5e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "falcon_h1_te_1",
+              "pair": "8410->1369",
+              "pre": {
+                "loss_ce": 0.0003,
+                "kl_first_vs_oracle": 1.5e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0003,
+                "kl_first_vs_oracle": 1.1e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "falcon_h1_te_2",
+              "pair": "3534->1229",
+              "pre": {
+                "loss_ce": 0.0003,
+                "kl_first_vs_oracle": 5.1e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0003,
+                "kl_first_vs_oracle": 4.1e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "falcon_h1_te_3",
+              "pair": "8516->6203",
+              "pre": {
+                "loss_ce": 0.0004,
+                "kl_first_vs_oracle": 5e-06,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0004,
+                "kl_first_vs_oracle": 7e-06,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "falcon_h1_te_4",
+              "pair": "8074->9953",
+              "pre": {
+                "loss_ce": 0.0008,
+                "kl_first_vs_oracle": 6e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0006,
+                "kl_first_vs_oracle": 3e-05,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            }
+          ]
+        },
+        "surrogate_infer_only_ms": 56.115
+      }
+    },
+    "zamba2": {
+      "repo_id": "Zyphra/Zamba2-1.2B-Instruct-v2",
+      "arch": "zamba2",
+      "geom": {
+        "n_linear": 38,
+        "n_heads": 64,
+        "d_state": 128,
+        "d_val": 64,
+        "w_conv": 4
+      },
+      "symmetric_hypic_vs_olocal": {
+        "timing_rows": [
+          {
+            "T_ctx": 512,
+            "n_segs_128": 4,
+            "remaining_segs": 3,
+            "jlocal_online_sym_ms": 109.345,
+            "hypic_phi_chain_sym_ms": 108.092,
+            "hypic_mamba2_diagonal_sym_ms": 102.297,
+            "faithful_hypic_over_olocal_speedup": 0.936,
+            "dense_phi_proxy_over_olocal_speedup": 0.989,
+            "symmetric_speedup_hypic_over_jlocal": 0.989,
+            "jlocal_raw_ms": [
+              112.447,
+              107.626,
+              111.065,
+              115.485,
+              106.547,
+              107.442,
+              111.2,
+              106.046
+            ],
+            "hypic_phi_raw_ms": [
+              103.109,
+              114.052,
+              109.095,
+              109.963,
+              102.379,
+              107.088,
+              95.598,
+              111.337
+            ],
+            "hypic_diag_raw_ms": [
+              103.593,
+              100.154,
+              109.193,
+              102.256,
+              103.285,
+              102.338,
+              98.02,
+              97.938
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00400059,
+              "olocal_max_kl": 0.00832282,
+              "hypic_faithful_kl": 0.00414429,
+              "hypic_faithful_max_kl": 0.00761086,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 4,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 0.8,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": false,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00832282,
+                  "hypic_faithful_kl": 0.00761086,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00114725,
+                  "hypic_faithful_kl": 0.00305924,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": false
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00772028,
+                  "hypic_faithful_kl": 0.00748357,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00177954,
+                  "hypic_faithful_kl": 0.00141479,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00103308,
+                  "hypic_faithful_kl": 0.001153,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 1024,
+            "n_segs_128": 8,
+            "remaining_segs": 6,
+            "jlocal_online_sym_ms": 109.482,
+            "hypic_phi_chain_sym_ms": 108.445,
+            "hypic_mamba2_diagonal_sym_ms": 101.822,
+            "faithful_hypic_over_olocal_speedup": 0.93,
+            "dense_phi_proxy_over_olocal_speedup": 0.991,
+            "symmetric_speedup_hypic_over_jlocal": 0.991,
+            "jlocal_raw_ms": [
+              110.458,
+              112.016,
+              98.031,
+              108.506,
+              111.613,
+              106.842,
+              108.208,
+              112.967
+            ],
+            "hypic_phi_raw_ms": [
+              108.2,
+              98.852,
+              109.55,
+              109.131,
+              111.445,
+              105.843,
+              108.691,
+              103.198
+            ],
+            "hypic_diag_raw_ms": [
+              103.989,
+              102.725,
+              90.773,
+              104.722,
+              101.833,
+              100.568,
+              101.812,
+              99.377
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00329897,
+              "olocal_max_kl": 0.00922816,
+              "hypic_faithful_kl": 0.00311447,
+              "hypic_faithful_max_kl": 0.00509804,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00154423,
+                  "hypic_faithful_kl": 0.00207357,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00376239,
+                  "hypic_faithful_kl": 0.00396238,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00122121,
+                  "hypic_faithful_kl": 0.00363968,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00073884,
+                  "hypic_faithful_kl": 0.00079869,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00922816,
+                  "hypic_faithful_kl": 0.00509804,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 2048,
+            "n_segs_128": 16,
+            "remaining_segs": 12,
+            "jlocal_online_sym_ms": 109.757,
+            "hypic_phi_chain_sym_ms": 115.485,
+            "hypic_mamba2_diagonal_sym_ms": 104.836,
+            "faithful_hypic_over_olocal_speedup": 0.955,
+            "dense_phi_proxy_over_olocal_speedup": 1.052,
+            "symmetric_speedup_hypic_over_jlocal": 1.052,
+            "jlocal_raw_ms": [
+              138.029,
+              109.861,
+              110.511,
+              106.265,
+              99.93,
+              108.903,
+              109.652,
+              113.655
+            ],
+            "hypic_phi_raw_ms": [
+              121.804,
+              114.67,
+              110.996,
+              110.641,
+              111.479,
+              117.216,
+              117.58,
+              116.3
+            ],
+            "hypic_diag_raw_ms": [
+              105.752,
+              103.881,
+              107.757,
+              94.559,
+              99.938,
+              103.92,
+              107.396,
+              108.804
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00096751,
+              "olocal_max_kl": 0.00133772,
+              "hypic_faithful_kl": 0.00100279,
+              "hypic_faithful_max_kl": 0.00204283,
+              "olocal_top1_eq_count": 5,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 1.0,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": true,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00066545,
+                  "hypic_faithful_kl": 0.00034338,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00133772,
+                  "hypic_faithful_kl": 0.00052487,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00119587,
+                  "hypic_faithful_kl": 0.00204283,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00088903,
+                  "hypic_faithful_kl": 0.00118806,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00074951,
+                  "hypic_faithful_kl": 0.00091479,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 4096,
+            "n_segs_128": 32,
+            "remaining_segs": 24,
+            "jlocal_online_sym_ms": 111.005,
+            "hypic_phi_chain_sym_ms": null,
+            "hypic_mamba2_diagonal_sym_ms": 111.297,
+            "faithful_hypic_over_olocal_speedup": 1.003,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": null,
+            "jlocal_raw_ms": [
+              111.101,
+              111.803,
+              111.569,
+              112.166,
+              100.216,
+              99.503,
+              99.741,
+              110.909
+            ],
+            "hypic_phi_raw_ms": null,
+            "hypic_diag_raw_ms": [
+              116.35,
+              110.609,
+              111.475,
+              112.267,
+              106.043,
+              111.12,
+              113.289,
+              106.955
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00176683,
+              "olocal_max_kl": 0.00318183,
+              "hypic_faithful_kl": 0.00077417,
+              "hypic_faithful_max_kl": 0.0011638,
+              "olocal_top1_eq_count": 4,
+              "hypic_faithful_top1_eq_count": 5,
+              "olocal_top1_eq_rate": 0.8,
+              "hypic_faithful_top1_eq_rate": 1.0,
+              "olocal_top1_eq_oracle": false,
+              "hypic_faithful_top1_eq_oracle": true,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.00229901,
+                  "hypic_faithful_kl": 0.0011638,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00125392,
+                  "hypic_faithful_kl": 0.0005885,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00049705,
+                  "hypic_faithful_kl": 0.00035969,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00160234,
+                  "hypic_faithful_kl": 0.00095325,
+                  "olocal_top1_eq_oracle": false,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00318183,
+                  "hypic_faithful_kl": 0.00080559,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          },
+          {
+            "T_ctx": 8192,
+            "n_segs_128": 64,
+            "remaining_segs": 48,
+            "jlocal_online_sym_ms": 113.839,
+            "hypic_phi_chain_sym_ms": null,
+            "hypic_mamba2_diagonal_sym_ms": 123.984,
+            "faithful_hypic_over_olocal_speedup": 1.089,
+            "dense_phi_proxy_over_olocal_speedup": null,
+            "symmetric_speedup_hypic_over_jlocal": null,
+            "jlocal_raw_ms": [
+              113.334,
+              102.522,
+              113.733,
+              114.369,
+              119.678,
+              113.946,
+              112.756,
+              118.619
+            ],
+            "hypic_phi_raw_ms": null,
+            "hypic_diag_raw_ms": [
+              116.591,
+              120.455,
+              128.968,
+              127.873,
+              124.413,
+              126.882,
+              123.555,
+              118.848
+            ],
+            "fidelity_scope": "n_ol=5_n_hy=5_synthetic_prompts_last_token",
+            "fidelity_vs_oracle": {
+              "n_prompts": 5,
+              "olocal_n_done": 5,
+              "hypic_faithful_n_done": 5,
+              "fidelity_oom_error": null,
+              "olocal_kl": 0.00439906,
+              "olocal_max_kl": 0.01111116,
+              "hypic_faithful_kl": 0.00306003,
+              "hypic_faithful_max_kl": 0.00495312,
+              "olocal_top1_eq_count": 4,
+              "hypic_faithful_top1_eq_count": 4,
+              "olocal_top1_eq_rate": 0.8,
+              "hypic_faithful_top1_eq_rate": 0.8,
+              "olocal_top1_eq_oracle": false,
+              "hypic_faithful_top1_eq_oracle": false,
+              "per_case": [
+                {
+                  "case_idx": 0,
+                  "olocal_kl": 0.01111116,
+                  "hypic_faithful_kl": 0.00130004,
+                  "olocal_top1_eq_oracle": false,
+                  "hypic_faithful_top1_eq_oracle": false
+                },
+                {
+                  "case_idx": 1,
+                  "olocal_kl": 0.00138092,
+                  "hypic_faithful_kl": 0.00115473,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 2,
+                  "olocal_kl": 0.00302874,
+                  "hypic_faithful_kl": 0.00495312,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 3,
+                  "olocal_kl": 0.00427294,
+                  "hypic_faithful_kl": 0.00430365,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                },
+                {
+                  "case_idx": 4,
+                  "olocal_kl": 0.00220154,
+                  "hypic_faithful_kl": 0.00358861,
+                  "olocal_top1_eq_oracle": true,
+                  "hypic_faithful_top1_eq_oracle": true
+                }
+              ]
+            }
+          }
+        ],
+        "vram_probe": [
+          {
+            "T_ctx": 512,
+            "n_segs": 4,
+            "d_state": 128,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 4915724288,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 318767104,
+            "hypic_dense_phi_measured_cuda_bytes": 318767104,
+            "hypic_mamba2_diagonal_phi_bytes": 77824,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 9980928,
+            "olocal_gcum_measured_cuda_bytes": 9980928,
+            "olocal_gseg_theoretical_bytes": 77824,
+            "measured_dense_vram_ratio_vs_gcum": 31.94,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 1024,
+            "n_segs": 8,
+            "d_state": 128,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 4097835008,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 637534208,
+            "hypic_dense_phi_measured_cuda_bytes": 637534208,
+            "hypic_mamba2_diagonal_phi_bytes": 155648,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 19942400,
+            "olocal_gcum_measured_cuda_bytes": 20971520,
+            "olocal_gseg_theoretical_bytes": 155648,
+            "measured_dense_vram_ratio_vs_gcum": 30.4,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 2048,
+            "n_segs": 16,
+            "d_state": 128,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": false,
+            "free_vram_before_bytes": 4041211904,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 1275068416,
+            "hypic_dense_phi_measured_cuda_bytes": 1275068416,
+            "hypic_mamba2_diagonal_phi_bytes": 311296,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 39865344,
+            "olocal_gcum_measured_cuda_bytes": 39865344,
+            "olocal_gseg_theoretical_bytes": 311296,
+            "measured_dense_vram_ratio_vs_gcum": 31.98,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 4096,
+            "n_segs": 32,
+            "d_state": 128,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": false,
+            "windows_wddm_concurrency_risk_50pct": true,
+            "free_vram_before_bytes": 3904897024,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 2550136832,
+            "hypic_dense_phi_measured_cuda_bytes": 2550136832,
+            "hypic_mamba2_diagonal_phi_bytes": 622592,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": false,
+            "olocal_gcum_theoretical_bytes": 79711232,
+            "olocal_gcum_measured_cuda_bytes": 79711232,
+            "olocal_gseg_theoretical_bytes": 622592,
+            "measured_dense_vram_ratio_vs_gcum": 31.99,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          },
+          {
+            "T_ctx": 8192,
+            "n_segs": 64,
+            "d_state": 128,
+            "cuda_platform": "windows_wddm",
+            "vram_allocation_method": "cuda_memory_allocated_delta_on_torch_empty",
+            "windows_wddm_paging_risk": true,
+            "windows_wddm_concurrency_risk_50pct": true,
+            "free_vram_before_bytes": 3407872000,
+            "total_vram_bytes": 8585216000,
+            "dense_phi_faithful_for_arch": false,
+            "dense_phi_role": "dense_phi_memory_stress_proxy_only",
+            "hypic_dense_phi_theoretical_bytes": 5100273664,
+            "hypic_dense_phi_measured_cuda_bytes": 5100273664,
+            "hypic_mamba2_diagonal_phi_bytes": 1245184,
+            "hypic_phi_oom": false,
+            "oom_reason": "none",
+            "precheck_exceeded_free_88pct": true,
+            "olocal_gcum_theoretical_bytes": 159403008,
+            "olocal_gcum_measured_cuda_bytes": 161480704,
+            "olocal_gseg_theoretical_bytes": 1245184,
+            "measured_dense_vram_ratio_vs_gcum": 31.58,
+            "theoretical_dense_vram_ratio_vs_gseg": 4096.0
+          }
+        ]
+      },
+      "t5_single_edit": {
+        "lora_params": 2949120,
+        "total_params": 1218013824,
+        "selected_case_idx": 3,
+        "selected_case_regime": "zamba2",
+        "selection_criterion_met": "oracle_pass_and_pre_fail",
+        "mamba2_prompt_fillers": [
+          12,
+          10
+        ],
+        "train_pool_scanned": 20,
+        "train_pool_oracle_passing_count": 18,
+        "train_pool_oracle_pass_and_pre_fail_count": 6,
+        "heldout_pool_scanned": 20,
+        "heldout_pool_oracle_passing_count": 17,
+        "train_case_id": "zamba2_tr_3",
+        "heldout_case_id": "zamba2_te",
+        "train_pair": "bay->black",
+        "heldout_pair": "8516->6203",
+        "train_heldout_disjoint_verified": true,
+        "single_edit_steps_measured": 10,
+        "single_edit_1step_s": 0.7768,
+        "single_edit_warm_median_step_s": 0.8058,
+        "single_edit_k_steps_total_s": 8.1499,
+        "single_edit_loss_start": 6.2271,
+        "single_edit_loss_end": 0.5007,
+        "train_pre_eval": {
+          "loss_ce": 5.377,
+          "kl_first_vs_oracle": 1.700088,
+          "top1_hit": false,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": false
+        },
+        "train_post_eval": {
+          "loss_ce": 0.1191,
+          "kl_first_vs_oracle": 0.814013,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_pre_eval": {
+          "loss_ce": 0.0127,
+          "kl_first_vs_oracle": 0.002907,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_post_eval": {
+          "loss_ce": 0.0119,
+          "kl_first_vs_oracle": 0.003948,
+          "top1_hit": true,
+          "oracle_top1_hit": true,
+          "top1_eq_oracle": true
+        },
+        "heldout_n": 5,
+        "heldout_multi_eval": {
+          "n_heldout": 5,
+          "pre_top1_hits": 5,
+          "post_top1_hits": 5,
+          "oracle_top1_hits": 5,
+          "pre_top1_eq_oracle": 5,
+          "post_top1_eq_oracle": 5,
+          "pre_mean_kl_vs_oracle": 0.002433,
+          "post_mean_kl_vs_oracle": 0.002852,
+          "pre_mean_ce": 0.0234,
+          "post_mean_ce": 0.0216,
+          "per_case": [
+            {
+              "case_id": "zamba2_te_0",
+              "pair": "8516->6203",
+              "pre": {
+                "loss_ce": 0.0127,
+                "kl_first_vs_oracle": 0.002907,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0119,
+                "kl_first_vs_oracle": 0.003948,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "zamba2_te_1",
+              "pair": "3534->1229",
+              "pre": {
+                "loss_ce": 0.0157,
+                "kl_first_vs_oracle": 0.003108,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.013,
+                "kl_first_vs_oracle": 0.000887,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "zamba2_te_2",
+              "pair": "1682->7761",
+              "pre": {
+                "loss_ce": 0.0219,
+                "kl_first_vs_oracle": 0.000691,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0212,
+                "kl_first_vs_oracle": 0.000792,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "zamba2_te_3",
+              "pair": "4752->6047",
+              "pre": {
+                "loss_ce": 0.0315,
+                "kl_first_vs_oracle": 0.00063,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0265,
+                "kl_first_vs_oracle": 0.003685,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            },
+            {
+              "case_id": "zamba2_te_4",
+              "pair": "8936->4567",
+              "pre": {
+                "loss_ce": 0.0353,
+                "kl_first_vs_oracle": 0.004831,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              },
+              "post": {
+                "loss_ce": 0.0356,
+                "kl_first_vs_oracle": 0.004946,
+                "top1_hit": true,
+                "oracle_top1_hit": true,
+                "top1_eq_oracle": true
+              }
+            }
+          ]
+        },
+        "surrogate_infer_only_ms": 50.203
+      }
+    }
+  }
+}

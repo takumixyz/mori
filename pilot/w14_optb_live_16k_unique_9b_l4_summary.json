@@ -1,0 +1,298 @@
+{
+  "runner": "pilot/w14_optb_live_16k_unique_osc.py",
+  "model": "Qwen/Qwen3.5-9B",
+  "tag": "9b_l4",
+  "device_name": "NVIDIA L4",
+  "os_name": "Linux-6.6.159+-x86_64-with-glibc2.39",
+  "torch_version": "2.14.1+cu130",
+  "transformers_version": "5.22.1",
+  "seed": 20261128,
+  "ctx_len_target": 16384,
+  "detector": "osc",
+  "tau_osc": 0.4,
+  "decode_max_new_tokens": 8,
+  "decode_eos_can_stop_early": true,
+  "corpus_diversity_audit": {
+    "n_cases": 100,
+    "unique_entities": 100,
+    "unique_prompt_hashes": 100,
+    "unique_old_new_pairs": 100,
+    "template_counts_by_regime": {
+      "benign_clean_fact": {
+        "cf_vault": 10,
+        "cf_pin": 10,
+        "cf_badge": 10,
+        "cf_serial": 10
+      },
+      "benign_varlen_json": {
+        "js_deploy": 10,
+        "js_route": 10,
+        "js_cache": 10,
+        "js_cluster": 10
+      },
+      "coupled_twohop_fail": {
+        "cp_routing": 5,
+        "cp_clearance": 5,
+        "cp_dispatch": 5,
+        "cp_orbital": 5
+      }
+    },
+    "n_pairs": 4950,
+    "mean_pairwise_8gram_jaccard": 1e-05,
+    "max_pairwise_8gram_jaccard": 0.000803
+  },
+  "timing_scope": {
+    "included_in_gpu_path": [
+      "olocal_block_forward_and_update",
+      "detector_feature_and_score",
+      "conditional_suffix_fallback"
+    ],
+    "excluded_from_gpu_path": [
+      "prefix_h2d",
+      "ctx_cache_h2d_or_clone",
+      "precomputed_suffix_decay_hooks",
+      "precomputed_lg_old_query_logits"
+    ],
+    "serving_assumption_note": "Precomputed lg_old assumes Turn-0 cached query logits are available (re-querying after edit); unseen post-edit queries require an extra forward pass on c_ctx_old."
+  },
+  "summary": {
+    "n": 100,
+    "unique_prompt_hashes": 100,
+    "unique_entities": 100,
+    "prompt_hashes_recomputed_verified": 100,
+    "all_prompts_unique": true,
+    "all_entities_unique": true,
+    "tau_osc": 0.4,
+    "tp": 14,
+    "fp": 6,
+    "fn": 0,
+    "tn": 80,
+    "n_pos": 14,
+    "n_neg": 86,
+    "tpr": 1.0,
+    "tnr": 0.9302,
+    "ci_convention": "two_sided_95pct_clopper_pearson_lower_bound (alpha/2=0.025)",
+    "tpr_cp95_lb": 0.76836,
+    "tnr_cp95_lb": 0.85431,
+    "benign_fp_rate": 0.0698,
+    "benign_fp_wilson95": [
+      0.0324,
+      0.144
+    ],
+    "recompute_rate": 0.2,
+    "auroc": 0.990864,
+    "pr_auc_rank": 0.952891,
+    "pr_auc_tie_aware": 0.952891,
+    "joint_auc_cp95_lb": 0.62267,
+    "always_jlocal_contains_new": 0.86,
+    "live_routed_contains_new": 1.0,
+    "always_suffix_contains_new": 1.0,
+    "always_jlocal_exact_match": 0.86,
+    "live_routed_exact_match": 1.0,
+    "always_suffix_exact_match": 1.0,
+    "always_jlocal_old_leak": 0.14,
+    "live_routed_old_leak": 0.0,
+    "always_suffix_old_leak": 0.0,
+    "mean_kl_routed_vs_suffix": 2.435e-05,
+    "percentile_convention": "upper_order_statistic (sorted[n//2], sorted[min(n-1, int(0.95*n))])",
+    "timing_gpu_path_ms": {
+      "olocal_mean_ms": 625.062,
+      "live_routed_mean_ms": 2181.788,
+      "live_routed_p50_ms": 667.845,
+      "live_routed_p95_ms": 8329.788,
+      "always_suffix_mean_ms": 7783.216,
+      "always_suffix_p50_ms": 7759.84,
+      "always_suffix_p95_ms": 7980.533,
+      "speedup_mean_vs_always_suffix": 3.567
+    },
+    "tau_sensitivity": {
+      "tau_0.2": {
+        "tp": 14,
+        "fp": 6,
+        "recompute_rate": 0.2,
+        "contains_new_rate": 1.0
+      },
+      "tau_0.4": {
+        "tp": 14,
+        "fp": 6,
+        "recompute_rate": 0.2,
+        "contains_new_rate": 1.0
+      },
+      "tau_0.7": {
+        "tp": 14,
+        "fp": 6,
+        "recompute_rate": 0.2,
+        "contains_new_rate": 1.0
+      }
+    },
+    "by_regime": {
+      "benign_clean_fact": {
+        "n": 40,
+        "unique_prompts": 40,
+        "unique_entities": 40,
+        "unique_templates": 4,
+        "flagged": 0,
+        "jlocal_contains_new": 1.0,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0,
+        "suffix_exact_match": 1.0,
+        "routed_mean_ms": 561.153,
+        "suffix_mean_ms": 7676.007,
+        "speedup_mean": 13.679
+      },
+      "benign_varlen_json": {
+        "n": 40,
+        "unique_prompts": 40,
+        "unique_entities": 40,
+        "unique_templates": 4,
+        "flagged": 0,
+        "jlocal_contains_new": 1.0,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0,
+        "suffix_exact_match": 1.0,
+        "routed_mean_ms": 733.507,
+        "suffix_mean_ms": 7900.674,
+        "speedup_mean": 10.771
+      },
+      "coupled_twohop_fail": {
+        "n": 20,
+        "unique_prompts": 20,
+        "unique_entities": 20,
+        "unique_templates": 4,
+        "flagged": 20,
+        "jlocal_contains_new": 0.3,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0,
+        "suffix_exact_match": 1.0,
+        "routed_mean_ms": 8319.618,
+        "suffix_mean_ms": 7762.72,
+        "speedup_mean": 0.933
+      }
+    },
+    "by_template": {
+      "cf_badge": {
+        "n": 10,
+        "regime": "benign_clean_fact",
+        "flagged": 0,
+        "is_failure_jlocal": 0,
+        "jlocal_contains_new": 1.0,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0
+      },
+      "cf_pin": {
+        "n": 10,
+        "regime": "benign_clean_fact",
+        "flagged": 0,
+        "is_failure_jlocal": 0,
+        "jlocal_contains_new": 1.0,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0
+      },
+      "cf_serial": {
+        "n": 10,
+        "regime": "benign_clean_fact",
+        "flagged": 0,
+        "is_failure_jlocal": 0,
+        "jlocal_contains_new": 1.0,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0
+      },
+      "cf_vault": {
+        "n": 10,
+        "regime": "benign_clean_fact",
+        "flagged": 0,
+        "is_failure_jlocal": 0,
+        "jlocal_contains_new": 1.0,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0
+      },
+      "cp_clearance": {
+        "n": 5,
+        "regime": "coupled_twohop_fail",
+        "flagged": 5,
+        "is_failure_jlocal": 5,
+        "jlocal_contains_new": 0.0,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0
+      },
+      "cp_dispatch": {
+        "n": 5,
+        "regime": "coupled_twohop_fail",
+        "flagged": 5,
+        "is_failure_jlocal": 1,
+        "jlocal_contains_new": 0.8,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0
+      },
+      "cp_orbital": {
+        "n": 5,
+        "regime": "coupled_twohop_fail",
+        "flagged": 5,
+        "is_failure_jlocal": 3,
+        "jlocal_contains_new": 0.4,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0
+      },
+      "cp_routing": {
+        "n": 5,
+        "regime": "coupled_twohop_fail",
+        "flagged": 5,
+        "is_failure_jlocal": 5,
+        "jlocal_contains_new": 0.0,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0
+      },
+      "js_cache": {
+        "n": 10,
+        "regime": "benign_varlen_json",
+        "flagged": 0,
+        "is_failure_jlocal": 0,
+        "jlocal_contains_new": 1.0,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0
+      },
+      "js_cluster": {
+        "n": 10,
+        "regime": "benign_varlen_json",
+        "flagged": 0,
+        "is_failure_jlocal": 0,
+        "jlocal_contains_new": 1.0,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0
+      },
+      "js_deploy": {
+        "n": 10,
+        "regime": "benign_varlen_json",
+        "flagged": 0,
+        "is_failure_jlocal": 0,
+        "jlocal_contains_new": 1.0,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0
+      },
+      "js_route": {
+        "n": 10,
+        "regime": "benign_varlen_json",
+        "flagged": 0,
+        "is_failure_jlocal": 0,
+        "jlocal_contains_new": 1.0,
+        "routed_contains_new": 1.0,
+        "suffix_contains_new": 1.0,
+        "routed_exact_match": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "runner": "pilot/w14_optb_jamba_stateful_probe.py",
+  "repo_id": "ai21labs/AI21-Jamba-Reasoning-3B",
+  "max_chunk": 256,
+  "clean_rerun": true,
+  "stateful_chunk_equivalence": {
+    "n": 3,
+    "max_chunk": 256,
+    "vs_unpatched_available": true,
+    "all_top1_eq": true,
+    "strict_kl_le_1e4": 1,
+    "mean_kl": 0.00058889112168436,
+    "max_kl": 0.001100964499598154,
+    "max_logit_diff": 0.28125,
+    "chk_vs_one_all_top1_eq": true,
+    "chk_vs_one_strict_kl_le_1e4": 1,
+    "chk_vs_one_mean_kl": 0.00058889112168436,
+    "chk_vs_one_max_kl": 0.001100964499598154,
+    "chk_vs_one_max_logit_diff": 0.28125,
+    "pat_one_vs_unpatched_all_top1_eq": true,
+    "pat_one_vs_unpatched_strict_kl_le_1e4": 3,
+    "pat_one_vs_unpatched_mean_kl": 0.0,
+    "pat_one_vs_unpatched_max_kl": 0.0,
+    "pat_one_vs_unpatched_max_logit_diff": 0.0,
+    "pat_chk_vs_unpatched_all_top1_eq": true,
+    "pat_chk_vs_unpatched_strict_kl_le_1e4": 1,
+    "pat_chk_vs_unpatched_mean_kl": 0.00058889112168436,
+    "pat_chk_vs_unpatched_max_kl": 0.001100964499598154,
+    "pat_chk_vs_unpatched_max_logit_diff": 0.28125
+  },
+  "real_weights_fp32_equiv_check": {
+    "n": 3,
+    "max_chunk": 256,
+    "vs_unpatched_available": true,
+    "all_top1_eq": true,
+    "strict_kl_le_1e4": 3,
+    "mean_kl": 2.049697773332936e-11,
+    "max_kl": 4.21940348388459e-11,
+    "max_logit_diff": 6.29425048828125e-05,
+    "chk_vs_one_all_top1_eq": true,
+    "chk_vs_one_strict_kl_le_1e4": 3,
+    "chk_vs_one_mean_kl": 2.049697773332936e-11,
+    "chk_vs_one_max_kl": 4.21940348388459e-11,
+    "chk_vs_one_max_logit_diff": 6.29425048828125e-05,
+    "pat_one_vs_unpatched_all_top1_eq": true,
+    "pat_one_vs_unpatched_strict_kl_le_1e4": 3,
+    "pat_one_vs_unpatched_mean_kl": 0.0,
+    "pat_one_vs_unpatched_max_kl": 0.0,
+    "pat_one_vs_unpatched_max_logit_diff": 0.0,
+    "pat_chk_vs_unpatched_all_top1_eq": true,
+    "pat_chk_vs_unpatched_strict_kl_le_1e4": 3,
+    "pat_chk_vs_unpatched_mean_kl": 2.049697773332936e-11,
+    "pat_chk_vs_unpatched_max_kl": 4.21940348388459e-11,
+    "pat_chk_vs_unpatched_max_logit_diff": 6.29425048828125e-05
+  },
+  "oracle_gate": {
+    "n": 5,
+    "hits": 5,
+    "rate": 1.0,
+    "previews": [
+      {
+        "acc_new": true,
+        "new": "2138",
+        "format": "digit4",
+        "gen_text": "2138\n\nRecord:"
+      },
+      {
+        "acc_new": true,
+        "new": "bay",
+        "format": "single_token",
+        "gen_text": " bay\n\nSystem telemetry archive note"
+      },
+      {
+        "acc_new": true,
+        "new": "7324",
+        "format": "digit4",
+        "gen_text": "7324\n\nRecord:"
+      },
+      {
+        "acc_new": true,
+        "new": "black",
+        "format": "single_token",
+        "gen_text": " black\n\nSystem telemetry archive note"
+      },
+      {
+        "acc_new": true,
+        "new": "3478",
+        "format": "digit4",
+        "gen_text": "3478\n\nRecord:"
+      }
+    ]
+  },
+  "gate_passed": false,
+  "e2_summary": {}
+}
